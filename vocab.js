@@ -541,7 +541,7 @@ const VOCAB = [
   { en: 'RAINCOAT', trans: 'seua-gan-fon', thai: 'เสื้อกันฝน', level: 2 },
   { en: 'SWEATER', trans: 'seua-gan-naao', thai: 'เสื้อกันหนาว', level: 2 },
   { en: 'GLOVES', trans: 'tung-meuu', thai: 'ถุงมือ', level: 2 },
-  { en: 'COAT', trans: 'seua-coat', thai: 'เสื้อโค้ต', level: 2 },
+  { en: 'COAT', trans: 'seua koht', thai: 'เสื้อโค้ต', level: 2 },
   { en: 'MOSQUITO SPRAY', trans: 'sa-bpree-gan-yung', thai: 'สเปรย์กันยุง', level: 2 },
 
   // -- Медицина (фразы) --
@@ -550,9 +550,9 @@ const VOCAB = [
   { en: 'RESTAURANT', trans: 'raan ahaan', thai: 'ร้านอาหาร', level: 2 },
   { en: 'CINEMA', trans: 'rohng-nang', thai: 'โรงหนัง', level: 2 },
   { en: 'HOTEL', trans: 'rohng-raem', thai: 'โรงแรม', level: 2 },
-  { en: 'ICE CREAM SHOP', trans: 'raan ice-cream', thai: 'ร้านไอศกรีม', level: 2 },
+  { en: 'ICE CREAM SHOP', trans: 'raan ai sa griim', thai: 'ร้านไอศกรีม', level: 2 },
   { en: 'AQUARIUM', trans: 'pi-pit-ta-pan sat-naam', thai: 'พิพิธภัณฑ์สัตว์น้ำ', level: 2 },
-  { en: 'WIFI PASSWORD', trans: 'rahat wifi', thai: 'รหัสไวไฟ', level: 2 },
+  { en: 'WIFI PASSWORD', trans: 'rahat wai fai', thai: 'รหัสไวไฟ', level: 2 },
   { en: 'NEXT TO/BESIDE', trans: 'kaang kaang', thai: 'ข้างข้าง', level: 2 },
   { en: 'BETWEEN', trans: 'ra-waang', thai: 'ระหว่าง', level: 2 },
   { en: 'YOU ARE WELCOME', trans: 'mai bpen rai', thai: 'ไม่เป็นไร', level: 2 },
