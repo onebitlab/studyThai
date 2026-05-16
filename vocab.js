@@ -408,7 +408,7 @@ const VOCAB = [
   { en: 'MONDAY', trans: 'wan jan', thai: 'วันจันทร์', level: 2 },
   { en: 'TUESDAY', trans: 'wan ang-kaan', thai: 'วันอังคาร', level: 2 },
   { en: 'WEDNESDAY', trans: 'wan put', thai: 'วันพุธ', level: 2 },
-  { en: 'THURSDAY', trans: 'wan pareuhat', thai: 'วันพฤหัสบดี', level: 2 },
+  { en: 'THURSDAY', trans: 'wan pareuhat', thai: 'วันพฤหัส', level: 2 },
   { en: 'FRIDAY', trans: 'wan suk', thai: 'วันศุกร์', level: 2 },
   { en: 'SATURDAY', trans: 'wan sao', thai: 'วันเสาร์', level: 2 },
   { en: 'SUNDAY', trans: 'wan aa-tit', thai: 'วันอาทิตย์', level: 2 },
