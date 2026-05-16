@@ -478,9 +478,10 @@ async function fsConnect() {
   try {
     let handle;
     try {
-      [handle] = await window.showOpenFilePicker({
-        types: [{ description: 'JSON', accept: { 'application/json': ['.json'] } }],
-      });
+      // No `types` filter on purpose: a JSON/UTI filter makes macOS grey out
+      // the file right after the app's own atomic rewrite (createWritable),
+      // so it can't be picked until the OS re-resolves the file's type.
+      [handle] = await window.showOpenFilePicker();
     } catch(e) {
       handle = await window.showSaveFilePicker({
         suggestedName: 'studyThai_progress.json',
