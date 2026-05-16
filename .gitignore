@@ -1,0 +1,9 @@
+# Личный файл прогресса (File System Access API)
+studyThai_progress.json
+progress.json
+
+# Локальные настройки Claude Code
+.claude/settings.local.json
+
+# macOS
+.DS_Store
