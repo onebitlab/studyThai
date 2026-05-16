@@ -140,6 +140,8 @@ let isToneMode    = false;
 let isReverseMode = false;
 let isVocabMode   = false;
 let lastStart     = null;
+let quizHistory   = [];
+let reverseTimer  = null;
 
 // --- Vocab state ---
 let vocabQueue   = [];
@@ -271,10 +273,10 @@ function updateVocabProgress() {
     `осталось: ${remaining} | правильно: ${vocabCorrect} / ${vocabTotal}`;
 }
 
-function updateVocabPrevBtn() {
+function updatePrevBtn(hist) {
   const btn = document.getElementById('prev-btn');
   if (!btn) return;
-  btn.style.display = vocabHistory.length > 0 ? 'block' : 'none';
+  btn.style.display = hist.length > 0 ? 'block' : 'none';
 }
 
 function prevVocab() {
@@ -295,7 +297,7 @@ function prevVocab() {
   document.getElementById('skip-btn').style.display  = 'block';
   renderVocabCard();
   updateVocabProgress();
-  updateVocabPrevBtn();
+  updatePrevBtn(vocabHistory);
   document.getElementById('inp-trans').focus();
 }
 
@@ -334,7 +336,7 @@ function checkVocabAnswer() {
   document.getElementById('skip-btn').style.display = 'none';
   saveVocabSession();
   updateVocabProgress();
-  updateVocabPrevBtn();
+  updatePrevBtn(vocabHistory);
 }
 
 function nextVocab() {
@@ -358,7 +360,7 @@ function nextVocab() {
   document.getElementById('skip-btn').style.display   = 'block';
   renderVocabCard();
   updateVocabProgress();
-  updateVocabPrevBtn();
+  updatePrevBtn(vocabHistory);
   document.getElementById('inp-trans').focus();
 }
 
@@ -378,7 +380,7 @@ function skipVocab() {
   document.getElementById('reveal').textContent   = '';
   renderVocabCard();
   updateVocabProgress();
-  updateVocabPrevBtn();
+  updatePrevBtn(vocabHistory);
   document.getElementById('inp-trans').focus();
 }
 
@@ -626,6 +628,8 @@ function startReverse(mode) {
   pos           = 0;
   correctSet    = new Set();
   answered      = false;
+  quizHistory   = [];
+  if (reverseTimer) { clearTimeout(reverseTimer); reverseTimer = null; }
 
   const label = {
     middle: 'Middle class', high: 'High class', low: 'Low class', all: 'All consonants',
@@ -646,6 +650,7 @@ function startReverse(mode) {
     <div class="feedback" id="feedback"></div>
     <div class="answer-reveal" id="reveal"></div>
     <button id="next-btn" onclick="nextReverse()" style="display:none; margin-top:10px;">Следующая →</button>
+    <button id="prev-btn" class="btn-outline" onclick="prevQuiz()" style="margin-top:8px;font-size:15px;padding:10px;display:none;">← Назад</button>
   `;
   renderReverseCard();
   updateProgress();
@@ -681,6 +686,7 @@ function pickChoice(char) {
 
   const item = current();
   const ok   = char === item.char;
+  quizHistory.push({ pos, retry: [...retry], correctSet: new Set(correctSet), queue: [...queue] });
   recordResult(item.char, ok);
 
   document.querySelectorAll('.choice-btn').forEach(btn => {
@@ -694,8 +700,8 @@ function pickChoice(char) {
     correctSet.add(item.char);
     fb.textContent = '✓ Правильно!';
     fb.className   = 'feedback correct';
-    if (pos + 1 >= queue.length && retry.length === 0) { setTimeout(showDone, 700); return; }
-    setTimeout(nextReverse, 700);
+    if (pos + 1 >= queue.length && retry.length === 0) { reverseTimer = setTimeout(showDone, 700); return; }
+    reverseTimer = setTimeout(nextReverse, 700);
   } else {
     retry.push(item);
     fb.textContent = '✗ Неверно';
@@ -703,6 +709,7 @@ function pickChoice(char) {
     document.getElementById('next-btn').style.display = 'block';
   }
   updateProgress();
+  updatePrevBtn(quizHistory);
 }
 
 function nextReverse() {
@@ -712,6 +719,7 @@ function nextReverse() {
     queue = shuffle(retry);
     retry = [];
     pos   = 0;
+    quizHistory = [];
   }
   answered = false;
   document.getElementById('feedback').textContent  = '';
@@ -720,6 +728,7 @@ function nextReverse() {
   document.getElementById('next-btn').style.display = 'none';
   renderReverseCard();
   updateProgress();
+  updatePrevBtn(quizHistory);
 }
 
 let menuTab = 'consonants';
@@ -907,6 +916,7 @@ function startQuiz(mode) {
   pos = 0;
   correctSet = new Set();
   answered = false;
+  quizHistory = [];
 
   const classLabel = LABELS[mode] ?? mode;
   const smallLetter = isVowelMode || isToneMode;
@@ -927,6 +937,7 @@ function startQuiz(mode) {
       </div>
     </div>
     <button id="action-btn" onclick="checkAnswer()">Проверить →</button>
+    <button id="prev-btn" class="btn-outline" onclick="prevQuiz()" style="margin-top:8px;font-size:15px;padding:10px;display:none;">← Назад</button>
     <div class="feedback" id="feedback"></div>
     <div class="answer-reveal" id="reveal"></div>
   `;
@@ -945,6 +956,40 @@ function updateProgress() {
     `осталось: ${remaining} | правильно: ${correct} / ${activeLetters.length}`;
 }
 
+function prevQuiz() {
+  if (quizHistory.length === 0) return;
+  if (reverseTimer) { clearTimeout(reverseTimer); reverseTimer = null; }
+  const snap = quizHistory.pop();
+  pos        = snap.pos;
+  retry      = snap.retry;
+  correctSet = snap.correctSet;
+  queue      = snap.queue;
+  answered   = false;
+
+  document.getElementById('feedback').textContent = '';
+  document.getElementById('feedback').className   = 'feedback';
+  document.getElementById('reveal').textContent   = '';
+
+  if (isReverseMode) {
+    document.getElementById('next-btn').style.display = 'none';
+    renderReverseCard();
+  } else {
+    document.getElementById('letter').textContent = current().char;
+    if (isToneMode) document.getElementById('subtitle').textContent = current().subtitle;
+    const ln = document.getElementById('letter-name');
+    if (ln) ln.style.visibility = 'hidden';
+    updateWordHint();
+    const inp = document.getElementById(isToneMode ? 'inp-name' : 'inp-sound');
+    inp.value     = '';
+    inp.className = '';
+    document.getElementById('action-btn').textContent = 'Проверить →';
+    inp.focus();
+  }
+
+  updateProgress();
+  updatePrevBtn(quizHistory);
+}
+
 function checkAnswer() {
   if (answered) { next(); return; }
 
@@ -955,6 +1000,7 @@ function checkAnswer() {
     const inpName = document.getElementById('inp-name').value;
     if (!inpName) return;
     const ok = matchAny(inpName, item.nameAlt);
+    quizHistory.push({ pos, retry: [...retry], correctSet: new Set(correctSet), queue: [...queue] });
     recordResult(item.char, ok);
     answered = true;
     document.getElementById('inp-name').className = ok ? 'ok' : 'bad';
@@ -973,6 +1019,7 @@ function checkAnswer() {
     const inpSound = document.getElementById('inp-sound').value;
     if (!inpSound) return;
     const ok = soundCheck(inpSound, item);
+    quizHistory.push({ pos, retry: [...retry], correctSet: new Set(correctSet), queue: [...queue] });
     recordResult(item.char, ok);
     answered = true;
     document.getElementById('inp-sound').className = ok ? 'ok' : 'bad';
@@ -994,6 +1041,7 @@ function checkAnswer() {
   }
 
   updateProgress();
+  updatePrevBtn(quizHistory);
   document.getElementById('action-btn').textContent = 'Следующая →';
 }
 
@@ -1004,6 +1052,7 @@ function next() {
     queue = shuffle(retry);
     retry = [];
     pos = 0;
+    quizHistory = [];
   }
 
   answered = false;
@@ -1021,6 +1070,7 @@ function next() {
   document.getElementById('reveal').textContent = '';
   document.getElementById('action-btn').textContent = 'Проверить →';
   updateProgress();
+  updatePrevBtn(quizHistory);
 }
 
 function showDone() {
