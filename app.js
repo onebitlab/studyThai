@@ -77,7 +77,8 @@ const LONG_VOWELS = [
 const SPECIAL_VOWELS = [
   { char: 'เกีย', name: 'sara ia',  nameAlt: ['sara ia','สระเอีย'],              sound: 'ia',  soundAlt: ['ia'] },
   { char: 'เกือ', name: 'sara eua', nameAlt: ['sara eua','sara uea','สระเอือ'], sound: 'eua', soundAlt: ['eua'] },
-  { char: 'เกิ',  name: 'sara er',  nameAlt: ['sara er','สระเอิ'],              sound: 'er',  soundAlt: ['er'] },
+  { char: 'เกิ',  name: 'sara er (short)', nameAlt: ['sara er','sara er short','สระเอิ'], sound: 'er',  soundAlt: ['er'] },
+  { char: 'เกอ',  name: 'sara er (long)',  nameAlt: ['sara er','sara er long','สระเออ'],  sound: 'er',  soundAlt: ['er'] },
   { char: 'กัว',  name: 'sara ua',  nameAlt: ['sara ua','สระอัว'],               sound: 'uua', soundAlt: ['uua'] },
   { char: 'กวย',  name: 'sara uai', nameAlt: ['sara uai','สระวย'],              sound: 'uai', soundAlt: ['uai'] },
   { char: 'กอย',  name: 'sara oi',  nameAlt: ['sara oi','สระอย'],               sound: 'oi',  soundAlt: ['oi'] },
@@ -749,6 +750,12 @@ function showHomophones() {
       b: { char: 'กอ',   name: 'sara or (long)',  type: 'long'  },
     },
     {
+      sound: 'er',
+      note: 'краткая vs долгая',
+      a: { char: 'เกิ', name: 'sara er (short)', type: 'short' },
+      b: { char: 'เกอ', name: 'sara er (long)',  type: 'long'  },
+    },
+    {
       sound: 'ai',
       note: 'разное написание, один звук',
       a: { char: 'ไก', name: 'mai malai (ไ)', type: 'special' },
@@ -818,10 +825,10 @@ function showMenu(tab) {
     `).join('');
   } else if (menuTab === 'vowels') {
     const rows = [
-      ['Краткие (8)',          'vowel-short'],
-      ['Долгие (8)',           'vowel-long'],
-      ['Особые / дифтонги (7)','vowel-special'],
-      ['Все гласные (23)',     'vowel-all'],
+      ['Краткие (8)',           'vowel-short'],
+      ['Долгие (8)',            'vowel-long'],
+      ['Особые / дифтонги (11)','vowel-special'],
+      ['Все гласные (27)',      'vowel-all'],
     ];
     content = rows.map(([label, mode]) => `
       <div class="menu-section">

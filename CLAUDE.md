@@ -46,7 +46,7 @@ All romanisation in `sound`, `soundAlt`, and `vocab.js` `trans` fields uses **Pa
 | Thai | Paiboon+ | Note |
 |------|----------|------|
 | อะ / อั (short) | a | ซัก = sak, กัน = gan |
-| อา (long) | aa | สาม = saam, อาหาร = ahaan |
+| อา (long) | aa | สาม = saam, อาหาร = aahaan |
 | อิ (short) | i | |
 | อี (long) | ii | ดี = dii, กี่ = gii |
 | อึ (short) | eu | ถึง = teung |
