@@ -507,8 +507,21 @@ let fbDb   = null;
 let fbUser = null;
 let fbWriteTimer = null;
 
+function fbDebug(msg) {
+  // Temporary visible debug — will remove after auth is confirmed working
+  let el = document.getElementById('fb-debug');
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'fb-debug';
+    el.style.cssText = 'position:fixed;bottom:0;left:0;right:0;background:#111;color:#4ecca3;font-size:11px;padding:6px 10px;z-index:9999;word-break:break-all;';
+    document.body.appendChild(el);
+  }
+  el.textContent = msg;
+}
+
 function fbInit() {
-  if (typeof firebase === 'undefined') { showMenu(); return; }
+  if (typeof firebase === 'undefined') { fbDebug('Firebase SDK not loaded'); showMenu(); return; }
+  fbDebug('Firebase init...');
   firebase.initializeApp(FB_CONFIG);
   fbAuth = firebase.auth();
   fbDb   = firebase.firestore();
@@ -518,13 +531,16 @@ function fbInit() {
   fbAuth.getRedirectResult()
     .then(result => {
       if (result && result.user) {
-        console.log('Redirect sign-in OK:', result.user.email);
+        fbDebug('Redirect OK: ' + result.user.email);
+      } else {
+        fbDebug('No redirect result (normal on first load)');
       }
     })
-    .catch(e => console.warn('Redirect error:', e.code, e.message));
+    .catch(e => fbDebug('Redirect error: ' + e.code + ' — ' + e.message));
 
   fbAuth.onAuthStateChanged(async user => {
     fbUser = user;
+    fbDebug(user ? 'Auth: signed in as ' + user.email : 'Auth: not signed in');
     if (user) await fbCloudRead();
     showMenu();
   });
