@@ -508,15 +508,10 @@ let fbUser = null;
 let fbWriteTimer = null;
 
 function fbDebug(msg) {
-  // Temporary visible debug — will remove after auth is confirmed working
-  let el = document.getElementById('fb-debug');
-  if (!el) {
-    el = document.createElement('div');
-    el.id = 'fb-debug';
-    el.style.cssText = 'position:fixed;bottom:0;left:0;right:0;background:#111;color:#4ecca3;font-size:11px;padding:6px 10px;z-index:9999;word-break:break-all;';
-    document.body.appendChild(el);
+  const card = document.getElementById('card');
+  if (card) {
+    card.innerHTML = `<div style="font-size:32px;line-height:1.6;color:#4ecca3;padding:20px;word-break:break-all;">${msg}</div>`;
   }
-  el.textContent = msg;
 }
 
 function fbInit() {
