@@ -475,6 +475,7 @@ function fsWrite() {
     if (Object.keys(memVocabSessions).length) data[VOCAB_SESSION_KEY] = memVocabSessions;
     localStorage.setItem(LS_DATA_KEY, JSON.stringify(data));
   } catch(e) {}
+  fbCloudWrite(); // sync to Firestore if signed in
 }
 
 function fsRead() {
@@ -489,6 +490,79 @@ function fsRead() {
 
 function fsInit() {
   fsRead();
+}
+
+// --- Firebase Sync (Google Sign-In + Firestore) ---
+const FB_CONFIG = {
+  apiKey:            'AIzaSyCeEJa3SINAtW7iORoMj_FDNMFC_d6bf-A',
+  authDomain:        'studythai-4cdbb.firebaseapp.com',
+  projectId:         'studythai-4cdbb',
+  storageBucket:     'studythai-4cdbb.firebasestorage.app',
+  messagingSenderId: '1004165921614',
+  appId:             '1:1004165921614:web:c7d47cdfccc7adc8d6bc1f'
+};
+
+let fbAuth = null;
+let fbDb   = null;
+let fbUser = null;
+let fbWriteTimer = null;
+
+function fbInit() {
+  if (typeof firebase === 'undefined') { showMenu(); return; }
+  firebase.initializeApp(FB_CONFIG);
+  fbAuth = firebase.auth();
+  fbDb   = firebase.firestore();
+  fbAuth.onAuthStateChanged(async user => {
+    fbUser = user;
+    if (user) await fbCloudRead();
+    showMenu();
+  });
+}
+
+async function fbCloudRead() {
+  if (!fbUser || !fbDb) return;
+  try {
+    const doc = await fbDb.collection('users').doc(fbUser.uid).get();
+    if (doc.exists) {
+      const d = doc.data();
+      if (d.studyThai_v1) memStats = d.studyThai_v1;
+      if (d.studyThai_vocab_sessions) memVocabSessions = d.studyThai_vocab_sessions;
+      // mirror to localStorage
+      try {
+        const save = {};
+        save[LS_KEY] = memStats;
+        save[VOCAB_SESSION_KEY] = memVocabSessions;
+        localStorage.setItem(LS_DATA_KEY, JSON.stringify(save));
+      } catch(e) {}
+    } else {
+      // first sign-in on this account — push local progress to cloud
+      fbCloudWrite();
+    }
+  } catch(e) {}
+}
+
+function fbCloudWrite() {
+  if (!fbUser || !fbDb) return;
+  // debounce: write 2 seconds after last change to avoid hammering Firestore
+  if (fbWriteTimer) clearTimeout(fbWriteTimer);
+  fbWriteTimer = setTimeout(async () => {
+    try {
+      const data = {};
+      if (Object.keys(memStats).length)        data.studyThai_v1 = memStats;
+      if (Object.keys(memVocabSessions).length) data.studyThai_vocab_sessions = memVocabSessions;
+      if (Object.keys(data).length) await fbDb.collection('users').doc(fbUser.uid).set(data);
+    } catch(e) {}
+  }, 2000);
+}
+
+function signInGoogle() {
+  if (!fbAuth) return;
+  fbAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).catch(() => {});
+}
+
+function fbSignOut() {
+  if (!fbAuth) return;
+  fbAuth.signOut();
 }
 
 function loadStats() { return { ...memStats }; }
@@ -857,9 +931,19 @@ function showMenu(tab) {
       }).join('')}`;
   }
 
+  const syncBar = fbUser
+    ? `<div style="text-align:center;font-size:12px;color:#4ecca3;margin-bottom:8px;">
+         ● ${fbUser.email}
+         <button onclick="fbSignOut()" style="background:none;border:none;color:#555;font-size:11px;cursor:pointer;text-decoration:underline;padding:0;margin-left:8px;">sign out</button>
+       </div>`
+    : `<div style="text-align:center;font-size:12px;margin-bottom:8px;">
+         <button onclick="signInGoogle()" style="background:none;border:1px solid #333;color:#888;font-size:12px;cursor:pointer;padding:4px 12px;border-radius:6px;">🔄 Sync via Google</button>
+       </div>`;
+
   document.getElementById('card').innerHTML = `
     <div class="menu-title">studyThai</div>
     <div class="tab-bar">${tabBar}</div>
+    ${syncBar}
     ${content}
   `;
 }
@@ -1132,4 +1216,4 @@ function handleKey(e) {
   if (e.key === 'Enter') checkAnswer();
 }
 
-fsInit(); showMenu();
+fsInit(); fbInit(); // fbInit calls showMenu() via onAuthStateChanged
