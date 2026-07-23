@@ -507,23 +507,14 @@ let fbDb   = null;
 let fbUser = null;
 let fbWriteTimer = null;
 
-function fbDebug(msg) {
-  const card = document.getElementById('card');
-  if (card) {
-    card.innerHTML = `<div style="font-size:32px;line-height:1.6;color:#4ecca3;padding:20px;word-break:break-all;">${msg}</div>`;
-  }
-}
-
 function fbInit() {
-  if (typeof firebase === 'undefined') { fbDebug('Firebase SDK not loaded'); showMenu(); return; }
-  fbDebug('Firebase init...');
+  if (typeof firebase === 'undefined') { showMenu(); return; }
   firebase.initializeApp(FB_CONFIG);
   fbAuth = firebase.auth();
   fbDb   = firebase.firestore();
 
   fbAuth.onAuthStateChanged(async user => {
     fbUser = user;
-    fbDebug(user ? 'Auth: signed in as ' + user.email : 'Auth: not signed in');
     if (user) await fbCloudRead();
     showMenu();
   });
@@ -567,7 +558,7 @@ function fbCloudWrite() {
 
 function signInGoogle() {
   if (!fbAuth) return;
-  fbAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).catch(e => fbDebug('Sign-in error: ' + e.code));
+  fbAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).catch(() => {});
 }
 
 function fbSignOut() {
