@@ -557,7 +557,7 @@ function fbCloudWrite() {
 
 function signInGoogle() {
   if (!fbAuth) return;
-  fbAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).catch(() => {});
+  fbAuth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
 }
 
 function fbSignOut() {
