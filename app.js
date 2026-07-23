@@ -82,6 +82,7 @@ const SPECIAL_VOWELS = [
   { char: 'กัว',  name: 'sara ua',  nameAlt: ['sara ua','สระอัว'],               sound: 'uua', soundAlt: ['uua'] },
   { char: 'กวย',  name: 'sara uai', nameAlt: ['sara uai','สระวย'],              sound: 'uai', soundAlt: ['uai'] },
   { char: 'กอย',  name: 'sara oi',  nameAlt: ['sara oi','สระอย'],               sound: 'oi',  soundAlt: ['oi'] },
+  { char: 'กาย',  name: 'sara aai', nameAlt: ['sara aai','สระอาย'],             sound: 'aai', soundAlt: ['aai'] },
   { char: 'ไก',  name: 'sara ai mai malai', nameAlt: ['sara ai','mai malai','สระไอ'], sound: 'ai', soundAlt: ['ai'] },
   { char: 'ใก',  name: 'sara ai mai muan',  nameAlt: ['sara ai','mai muan','สระใอ'],  sound: 'ai', soundAlt: ['ai'] },
   { char: 'เกา', name: 'sara ao',   nameAlt: ['sara ao','สระเอา'],               sound: 'ao',  soundAlt: ['ao'] },
@@ -89,22 +90,22 @@ const SPECIAL_VOWELS = [
 ];
 
 const TONE_RULES = [
-  { char: 'กา',  subtitle: 'กลาง · нет знака',      name: 'mid',     nameAlt: ['mid','samai','สามัญ','level'] },
-  { char: 'ก่า', subtitle: 'กลาง · ่  (май эк)',     name: 'low',     nameAlt: ['low','ek','เอก'] },
-  { char: 'ก้า', subtitle: 'กลาง · ้  (май тхо)',    name: 'falling', nameAlt: ['falling','tho','โท'] },
-  { char: 'ก๊า', subtitle: 'กลาง · ๊  (май три)',    name: 'high',    nameAlt: ['high','tri','ตรี'] },
-  { char: 'ก๋า', subtitle: 'กลาง · ๋  (май джатта)', name: 'rising',  nameAlt: ['rising','jattawa','จัตวา'] },
-  { char: 'ขา',  subtitle: 'สูง · нет знака',        name: 'rising',  nameAlt: ['rising','jattawa','จัตวา'] },
-  { char: 'ข่า', subtitle: 'สูง · ่  (май эк)',       name: 'low',     nameAlt: ['low','ek','เอก'] },
-  { char: 'ข้า', subtitle: 'สูง · ้  (май тхо)',      name: 'falling', nameAlt: ['falling','tho','โท'] },
-  { char: 'คา',  subtitle: 'ต่ำ · нет знака',         name: 'mid',     nameAlt: ['mid','samai','สามัญ','level'] },
-  { char: 'ค่า', subtitle: 'ต่ำ · ่  (май эк)',        name: 'falling', nameAlt: ['falling','tho','โท'] },
-  { char: 'ค้า', subtitle: 'ต่ำ · ้  (май тхо)',       name: 'high',    nameAlt: ['high','tri','ตรี'] },
+  { char: 'กา',  subtitle: 'กลาง · no mark',      name: 'mid',     nameAlt: ['mid','samai','สามัญ','level'] },
+  { char: 'ก่า', subtitle: 'กลาง · ่  (mai ek)',     name: 'low',     nameAlt: ['low','ek','เอก'] },
+  { char: 'ก้า', subtitle: 'กลาง · ้  (mai tho)',    name: 'falling', nameAlt: ['falling','tho','โท'] },
+  { char: 'ก๊า', subtitle: 'กลาง · ๊  (mai tri)',    name: 'high',    nameAlt: ['high','tri','ตรี'] },
+  { char: 'ก๋า', subtitle: 'กลาง · ๋  (mai jattawa)', name: 'rising',  nameAlt: ['rising','jattawa','จัตวา'] },
+  { char: 'ขา',  subtitle: 'สูง · no mark',        name: 'rising',  nameAlt: ['rising','jattawa','จัตวา'] },
+  { char: 'ข่า', subtitle: 'สูง · ่  (mai ek)',       name: 'low',     nameAlt: ['low','ek','เอก'] },
+  { char: 'ข้า', subtitle: 'สูง · ้  (mai tho)',      name: 'falling', nameAlt: ['falling','tho','โท'] },
+  { char: 'คา',  subtitle: 'ต่ำ · no mark',         name: 'mid',     nameAlt: ['mid','samai','สามัญ','level'] },
+  { char: 'ค่า', subtitle: 'ต่ำ · ่  (mai ek)',        name: 'falling', nameAlt: ['falling','tho','โท'] },
+  { char: 'ค้า', subtitle: 'ต่ำ · ้  (mai tho)',       name: 'high',    nameAlt: ['high','tri','ตรี'] },
 ];
 
 const FINAL_SOUNDS = {
   // unaspirated initial → plain stop final
-  'ก': 'k',  'ต': 't',  'ฏ': 't',
+  'ก': 'k',  'ต': 't',  'ฏ': 't',  'ป': 'p',
   // voiced → unvoiced
   'บ': 'p',  'ด': 't',  'ฎ': 't',  'จ': 't',
   // aspirated → plain stop
@@ -151,6 +152,8 @@ let vocabPos     = 0;
 let vocabCorrect = 0;
 let vocabTotal   = 0;
 let vocabLevel   = 0;
+let vocabLesson  = 0;
+let vocabRecall  = false;
 let vocabAnswered = false;
 let vocabNextTimer = null;
 let vocabHistory  = [];
@@ -165,10 +168,20 @@ function recordVocabResult(item, ok) {
   saveStats(s);
 }
 
-function buildVocabQueue(specialOnly = false, level = 0) {
+function buildVocabQueue(specialOnly = false, level = 0, lesson = 0) {
   let list = specialOnly ? VOCAB.filter(v => v.special) : VOCAB;
-  if (level) list = list.filter(v => v.level === level);
+  if (lesson) list = list.filter(v => v.lesson === lesson);
+  else if (level) list = list.filter(v => v.level === level);
   return shuffle([...list]);
+}
+
+function vocabSessKey(lesson, level, recall) {
+  // всегда принимаем явные параметры, никогда не читаем глобали
+  const l = (lesson !== undefined) ? lesson : vocabLesson;
+  const lv = (level  !== undefined) ? level  : vocabLevel;
+  const r  = (recall !== undefined) ? recall : vocabRecall;
+  const base = l ? 'lesson_' + l : '' + lv;
+  return r ? base + '_recall' : base;
 }
 
 
@@ -179,81 +192,94 @@ function normTrans(s) {
 const VOCAB_SESSION_KEY = 'studyThai_vocab_sessions';
 
 function saveVocabSession() {
-  memVocabSessions[vocabLevel] = {
+  memVocabSessions[vocabSessKey(vocabLesson, vocabLevel, vocabRecall)] = {
     queue:   vocabQueue.map(v => v.en),
     retry:   vocabRetry.map(v => v.en),
     pos:     vocabPos,
     correct: vocabCorrect,
     level:   vocabLevel,
+    lesson:  vocabLesson,
+    recall:  vocabRecall,
     total:   vocabTotal,
   };
   fsWrite();
 }
 
-function loadVocabSession(level) {
+function loadVocabSession(key) {
   try {
-    const s = memVocabSessions[level];
+    const s = memVocabSessions[key];
     if (!s) return null;
     const byEn = Object.fromEntries(VOCAB.map(v => [v.en, v]));
     const queue = s.queue.map(en => byEn[en]).filter(Boolean);
     const retry = (s.retry || []).map(en => byEn[en]).filter(Boolean);
     if (!queue.length) return null;
-    return { queue, retry, pos: s.pos || 0, correct: s.correct || 0, level: s.level || 0, total: s.total || queue.length };
+    return { queue, retry, pos: s.pos || 0, correct: s.correct || 0, level: s.level || 0, lesson: s.lesson || 0, recall: s.recall || false, total: s.total || queue.length };
   } catch(e) { return null; }
 }
 
 function clearVocabSession() {
-  delete memVocabSessions[vocabLevel];
+  delete memVocabSessions[vocabSessKey(vocabLesson, vocabLevel, vocabRecall)];
   fsWrite();
 }
 
-function vocabSessionInfo(lv) {
+function vocabSessionInfo(lv, lesson = 0, recall = false) {
   try {
-    const s = memVocabSessions[lv];
+    const base = lesson ? 'lesson_' + lesson : '' + lv;
+    const key = recall ? base + '_recall' : base;
+    const s = memVocabSessions[key];
     if (!s || !s.queue || !s.queue.length) return null;
-    return { done: s.pos || 0, correct: s.correct || 0, total: s.queue.length };
+    return { done: s.pos || 0, correct: s.correct || 0, total: s.total || s.queue.length };
   } catch(e) { return null; }
 }
 
-function startVocabQuiz(resume = false, specialOnly = false, level = 0) {
+function startVocabQuiz(resume = false, specialOnly = false, level = 0, lesson = 0, recall = false) {
   isVocabMode  = true;
   vocabAnswered = false;
 
-  const saved = resume ? loadVocabSession(level) : null;
+  const base = lesson ? 'lesson_' + lesson : '' + level;
+  const sessKey = recall ? base + '_recall' : base;
+  const saved = resume ? loadVocabSession(sessKey) : null;
   if (saved) {
     vocabQueue   = saved.queue;
     vocabRetry   = saved.retry;
     vocabPos     = saved.pos;
     vocabCorrect = saved.correct;
     vocabLevel   = saved.level;
+    vocabLesson  = saved.lesson || lesson;
+    vocabRecall  = saved.recall || recall;
     vocabTotal   = saved.total;
   } else {
     vocabLevel   = level;
-    vocabQueue   = buildVocabQueue(specialOnly, vocabLevel);
+    vocabLesson  = lesson;
+    vocabRecall  = recall;
+    vocabQueue   = buildVocabQueue(specialOnly, vocabLevel, vocabLesson);
     vocabTotal   = vocabQueue.length;
     vocabRetry   = [];
     vocabPos     = 0;
     vocabCorrect = 0;
-    saveVocabSession();
     vocabHistory = [];
+    saveVocabSession();
   }
 
-  lastStart = () => startVocabQuiz(false, specialOnly, vocabLevel);
-  const levelLabel = vocabLevel ? ` · Уровень ${vocabLevel}` : '';
-  const title = specialOnly ? 'SPECIAL WORDS' : `СЛОВАРЬ${levelLabel}`;
+  vocabHistory = [];
+  lastStart = () => startVocabQuiz(false, specialOnly, vocabLevel, vocabLesson, vocabRecall);
+  let title;
+  if (vocabLesson) title = `LESSON ${vocabLesson}${vocabRecall ? ' · Words' : ''}`;
+  else { const lbl = vocabLevel ? ` · Level ${vocabLevel}` : ''; title = `VOCABULARY${lbl}`; }
+  const backTab = 'beginners';
   document.getElementById('card').innerHTML = `
-    <button class="btn-back" onclick="showMenu('${specialOnly ? 'special' : 'vocab'}')">← Меню</button>
+    <button class="btn-back" onclick="showMenu('${backTab}')">← Menu</button>
     <div class="class-title">${title}</div>
     <div class="progress" id="progress"></div>
     <div class="vocab-en" id="vocab-en"></div>
     <div class="vocab-thai" id="vocab-thai"></div>
     <div class="fields">
-      <input type="text" id="inp-trans" placeholder="транскрипция..."
+      <input type="text" id="inp-trans" placeholder="transcription..."
              onkeydown="handleVocabKey(event)" autocomplete="off" spellcheck="false">
     </div>
-    <button id="action-btn" onclick="checkVocabAnswer()">Проверить →</button>
-    <button id="skip-btn" class="btn-outline" onclick="skipVocab()" style="margin-top:8px;font-size:15px;padding:10px;">Пропустить</button>
-    <button id="prev-btn" class="btn-outline" onclick="prevVocab()" style="margin-top:8px;font-size:15px;padding:10px;display:none;">← Назад</button>
+    <button id="action-btn" onclick="checkVocabAnswer()">Check →</button>
+    <button id="skip-btn" class="btn-outline" onclick="skipVocab()" style="margin-top:8px;font-size:15px;padding:10px;">Skip</button>
+    <button id="prev-btn" class="btn-outline" onclick="prevVocab()" style="margin-top:8px;font-size:15px;padding:10px;display:none;">← Back</button>
     <div class="feedback" id="feedback"></div>
     <div class="answer-reveal" id="reveal"></div>
   `;
@@ -264,14 +290,19 @@ function startVocabQuiz(resume = false, specialOnly = false, level = 0) {
 
 function renderVocabCard() {
   const item = vocabQueue[vocabPos];
-  document.getElementById('vocab-en').textContent = '';
-  document.getElementById('vocab-thai').textContent = item.thai || '';
+  if (vocabRecall) {
+    document.getElementById('vocab-en').textContent = item.en;
+    document.getElementById('vocab-thai').textContent = '';
+  } else {
+    document.getElementById('vocab-en').textContent = '';
+    document.getElementById('vocab-thai').textContent = item.thai || '';
+  }
 }
 
 function updateVocabProgress() {
-  const remaining = (vocabQueue.length - vocabPos) + vocabRetry.length;
+  const remaining = vocabTotal - vocabCorrect;
   document.getElementById('progress').textContent =
-    `осталось: ${remaining} | правильно: ${vocabCorrect} / ${vocabTotal}`;
+    `remaining: ${remaining} | correct: ${vocabCorrect} / ${vocabTotal}`;
 }
 
 function updatePrevBtn(hist) {
@@ -294,7 +325,7 @@ function prevVocab() {
   document.getElementById('feedback').textContent = '';
   document.getElementById('feedback').className   = 'feedback';
   document.getElementById('reveal').textContent   = '';
-  document.getElementById('action-btn').textContent  = 'Проверить →';
+  document.getElementById('action-btn').textContent  = 'Check →';
   document.getElementById('skip-btn').style.display  = 'block';
   renderVocabCard();
   updateVocabProgress();
@@ -315,25 +346,27 @@ function checkVocabAnswer() {
   vocabAnswered = true;
 
   document.getElementById('inp-trans').className = ok ? 'ok' : 'bad';
-  document.getElementById('vocab-en').textContent = item.en;
+  if (vocabRecall) document.getElementById('vocab-thai').textContent = item.thai || '';
+  else             document.getElementById('vocab-en').textContent = item.en;
 
   const fb = document.getElementById('feedback');
   if (ok) {
     vocabCorrect++;
-    fb.textContent = '✓ Правильно!';
+    fb.textContent = '✓ Correct!';
     fb.className = 'feedback correct';
     document.getElementById('reveal').innerHTML = `<span>${item.trans}</span>`;
     if (vocabPos + 1 >= vocabQueue.length && vocabRetry.length === 0) {
+      clearVocabSession();
       setTimeout(showVocabDone, 800); return;
     }
   } else {
     vocabRetry.push(item);
-    fb.textContent = '✗ Неверно';
+    fb.textContent = '✗ Wrong';
     fb.className = 'feedback wrong';
-    document.getElementById('reveal').innerHTML = `Правильно: <span>${item.trans}</span>`;
+    document.getElementById('reveal').innerHTML = `Correct: <span>${item.trans}</span>`;
   }
 
-  document.getElementById('action-btn').textContent = 'Следующая →';
+  document.getElementById('action-btn').textContent = 'Next →';
   document.getElementById('skip-btn').style.display = 'none';
   saveVocabSession();
   updateVocabProgress();
@@ -357,7 +390,7 @@ function nextVocab() {
   document.getElementById('feedback').textContent = '';
   document.getElementById('feedback').className   = 'feedback';
   document.getElementById('reveal').textContent   = '';
-  document.getElementById('action-btn').textContent    = 'Проверить →';
+  document.getElementById('action-btn').textContent    = 'Check →';
   document.getElementById('skip-btn').style.display   = 'block';
   renderVocabCard();
   updateVocabProgress();
@@ -370,8 +403,14 @@ function skipVocab() {
   if (vocabNextTimer) { clearTimeout(vocabNextTimer); vocabNextTimer = null; }
   vocabHistory.push({ pos: vocabPos, retry: [...vocabRetry], correct: vocabCorrect, queue: [...vocabQueue] });
   const item = vocabQueue.splice(vocabPos, 1)[0];
-  vocabQueue.push(item);
-  if (vocabPos >= vocabQueue.length) vocabPos = 0;
+  vocabRetry.push(item);
+  if (vocabPos >= vocabQueue.length) {
+    if (vocabRetry.length === 0) { clearVocabSession(); showVocabDone(); return; }
+    vocabQueue = shuffle(vocabRetry);
+    vocabRetry = [];
+    vocabPos   = 0;
+    vocabHistory = [];
+  }
   vocabAnswered = false;
   saveVocabSession();
   document.getElementById('inp-trans').value     = '';
@@ -387,12 +426,12 @@ function skipVocab() {
 
 function showVocabDone() {
   const repeatBtn = lastStart
-    ? `<button onclick="repeatQuiz()" style="margin-bottom:12px;">Повторить</button>`
+    ? `<button onclick="repeatQuiz()" style="margin-bottom:12px;">Repeat</button>`
     : '';
   document.getElementById('card').innerHTML = `
-    <div style="font-size:28px; color:#4ecca3; margin-bottom:20px;">Словарь пройден!</div>
+    <div style="font-size:28px; color:#4ecca3; margin-bottom:20px;">Vocabulary complete!</div>
     ${repeatBtn}
-    <button onclick="showMenu()">Меню</button>
+    <button onclick="showMenu()">Menu</button>
   `;
 }
 
@@ -423,97 +462,34 @@ function soundCheck(input, item) {
 }
 function current() { return queue[pos]; }
 
-// --- File System Access (Chrome) ---
-let fsHandle = null;
-let fsReady  = false;
-
-async function fsOpenDB() {
-  return new Promise((res, rej) => {
-    const r = indexedDB.open('studyThai_fs', 1);
-    r.onupgradeneeded = e => e.target.result.createObjectStore('h');
-    r.onsuccess = e => res(e.target.result);
-    r.onerror = () => rej(r.error);
-  });
-}
-async function fsPersistHandle(h) {
-  const db = await fsOpenDB();
-  return new Promise((res, rej) => {
-    const tx = db.transaction('h', 'readwrite');
-    tx.objectStore('h').put(h, 'f');
-    tx.oncomplete = res; tx.onerror = () => rej(tx.error);
-  });
-}
-async function fsGetHandle() {
-  try {
-    const db = await fsOpenDB();
-    return await new Promise((res, rej) => {
-      const tx = db.transaction('h', 'readonly');
-      const r = tx.objectStore('h').get('f');
-      r.onsuccess = () => res(r.result || null);
-      r.onerror = () => rej(r.error);
-    });
-  } catch(e) { return null; }
-}
-async function fsRead() {
-  if (!fsHandle) return;
-  try {
-    const text = await (await fsHandle.getFile()).text();
-    if (text.trim()) {
-      const data = JSON.parse(text);
-      if (data[LS_KEY]) memStats = data[LS_KEY];
-      if (data[VOCAB_SESSION_KEY]) memVocabSessions = data[VOCAB_SESSION_KEY];
-    }
-    fsReady = true;
-  } catch(e) { fsReady = false; }
-}
-function fsWrite() {
-  if (!fsHandle) return;
-  const data = {};
-  if (Object.keys(memStats).length) data[LS_KEY] = memStats;
-  if (Object.keys(memVocabSessions).length) data[VOCAB_SESSION_KEY] = memVocabSessions;
-  fsHandle.createWritable()
-    .then(w => w.write(JSON.stringify(data)).then(() => w.close()))
-    .catch(() => {});
-}
-async function fsConnect() {
-  try {
-    let handle;
-    try {
-      // No `types` filter on purpose: a JSON/UTI filter makes macOS grey out
-      // the file right after the app's own atomic rewrite (createWritable),
-      // so it can't be picked until the OS re-resolves the file's type.
-      [handle] = await window.showOpenFilePicker();
-    } catch(e) {
-      handle = await window.showSaveFilePicker({
-        suggestedName: 'studyThai_progress.json',
-        types: [{ description: 'JSON', accept: { 'application/json': ['.json'] } }],
-      });
-    }
-    fsHandle = handle;
-    await fsPersistHandle(handle);
-    await fsRead();
-    fsWrite();
-    showMenu();
-  } catch(e) {}
-}
-async function fsInit() {
-  const handle = await fsGetHandle();
-  if (!handle) return;
-  try {
-    const perm = await handle.queryPermission({ mode: 'readwrite' });
-    if (perm === 'granted') {
-      fsHandle = handle; await fsRead();
-    } else if (perm === 'prompt') {
-      const p = await handle.requestPermission({ mode: 'readwrite' });
-      if (p === 'granted') { fsHandle = handle; await fsRead(); }
-    }
-  } catch(e) {}
-}
-
-// --- In-memory stats (persisted to file) ---
+// --- Persistence via localStorage (works on all browsers & mobile) ---
 const LS_KEY = 'studyThai_v1';
+const LS_DATA_KEY = 'studyThai_data';
 let memStats = {};
 let memVocabSessions = {};
+
+function fsWrite() {
+  try {
+    const data = {};
+    if (Object.keys(memStats).length) data[LS_KEY] = memStats;
+    if (Object.keys(memVocabSessions).length) data[VOCAB_SESSION_KEY] = memVocabSessions;
+    localStorage.setItem(LS_DATA_KEY, JSON.stringify(data));
+  } catch(e) {}
+}
+
+function fsRead() {
+  try {
+    const raw = localStorage.getItem(LS_DATA_KEY);
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    if (data[LS_KEY]) memStats = data[LS_KEY];
+    if (data[VOCAB_SESSION_KEY]) memVocabSessions = data[VOCAB_SESSION_KEY];
+  } catch(e) {}
+}
+
+function fsInit() {
+  fsRead();
+}
 
 function loadStats() { return { ...memStats }; }
 function saveStats(s) { memStats = s; fsWrite(); }
@@ -601,7 +577,7 @@ function updateWordHint() {
     cl.textContent = cls ? `${cls} class` : (vtype ?? '');
   }
   const sp = document.getElementById('inp-sound');
-  if (sp) sp.placeholder = current().soundFinal ? 'нач. / кон. звук...' : 'звук...';
+  if (sp) sp.placeholder = current().soundFinal ? 'init. / final sound...' : 'sound...';
 }
 
 function getDistractors(correct, count = 3) {
@@ -640,8 +616,8 @@ function startReverse(mode) {
   }[mode] ?? mode;
 
   document.getElementById('card').innerHTML = `
-    <button class="btn-back" onclick="showMenu()">← Меню</button>
-    <div class="class-title">обратный · ${label}</div>
+    <button class="btn-back" onclick="showMenu()">← Menu</button>
+    <div class="class-title">reverse · ${label}</div>
     <div class="progress" id="progress"></div>
     <div class="rev-prompt">
       <div class="letter-cls" id="rev-cls"></div>
@@ -651,8 +627,9 @@ function startReverse(mode) {
     <div class="rev-grid" id="rev-choices"></div>
     <div class="feedback" id="feedback"></div>
     <div class="answer-reveal" id="reveal"></div>
-    <button id="next-btn" onclick="nextReverse()" style="display:none; margin-top:10px;">Следующая →</button>
-    <button id="prev-btn" class="btn-outline" onclick="prevQuiz()" style="margin-top:8px;font-size:15px;padding:10px;display:none;">← Назад</button>
+    <button id="next-btn" onclick="nextReverse()" style="display:none; margin-top:10px;">Next →</button>
+    <button id="skip-btn" class="btn-outline" onclick="skipReverse()" style="margin-top:8px;font-size:15px;padding:10px;">Skip</button>
+    <button id="prev-btn" class="btn-outline" onclick="prevQuiz()" style="margin-top:8px;font-size:15px;padding:10px;display:none;">← Back</button>
   `;
   renderReverseCard();
   updateProgress();
@@ -698,15 +675,17 @@ function pickChoice(char) {
   });
 
   const fb = document.getElementById('feedback');
+  const sb = document.getElementById('skip-btn');
+  if (sb) sb.style.display = 'none';
   if (ok) {
     correctSet.add(item.char);
-    fb.textContent = '✓ Правильно!';
+    fb.textContent = '✓ Correct!';
     fb.className   = 'feedback correct';
     if (pos + 1 >= queue.length && retry.length === 0) { reverseTimer = setTimeout(showDone, 700); return; }
     reverseTimer = setTimeout(nextReverse, 700);
   } else {
     retry.push(item);
-    fb.textContent = '✗ Неверно';
+    fb.textContent = '✗ Wrong';
     fb.className   = 'feedback wrong';
     document.getElementById('next-btn').style.display = 'block';
   }
@@ -728,6 +707,8 @@ function nextReverse() {
   document.getElementById('feedback').className    = 'feedback';
   document.getElementById('reveal').textContent    = '';
   document.getElementById('next-btn').style.display = 'none';
+  const sb = document.getElementById('skip-btn');
+  if (sb) sb.style.display = 'block';
   renderReverseCard();
   updateProgress();
   updatePrevBtn(quizHistory);
@@ -739,25 +720,25 @@ function showHomophones() {
   const PAIRS = [
     {
       sound: 'ae',
-      note: 'краткая vs долгая',
+      note: 'short vs long',
       a: { char: 'แกะ', name: 'sara ae (short)', type: 'short' },
       b: { char: 'แก',  name: 'sara ae (long)',  type: 'long'  },
     },
     {
       sound: 'or',
-      note: 'краткая vs долгая',
+      note: 'short vs long',
       a: { char: 'เกาะ', name: 'sara or (short)', type: 'short' },
       b: { char: 'กอ',   name: 'sara or (long)',  type: 'long'  },
     },
     {
       sound: 'er',
-      note: 'краткая vs долгая',
+      note: 'short vs long',
       a: { char: 'เกิ', name: 'sara er (short)', type: 'short' },
       b: { char: 'เกอ', name: 'sara er (long)',  type: 'long'  },
     },
     {
       sound: 'ai',
-      note: 'разное написание, один звук',
+      note: 'different spelling, same sound',
       a: { char: 'ไก', name: 'mai malai (ไ)', type: 'special' },
       b: { char: 'ใก', name: 'mai muan (ใ)',  type: 'special' },
     },
@@ -783,8 +764,8 @@ function showHomophones() {
   `).join('');
 
   document.getElementById('card').innerHTML = `
-    <button class="btn-back" onclick="showMenu('vowels')">← Гласные</button>
-    <div class="class-title" style="margin-bottom:20px;">ОДИНАКОВЫЙ ЗВУК</div>
+    <button class="btn-back" onclick="showMenu('vowels')">← Vowels</button>
+    <div class="class-title" style="margin-bottom:20px;">SAME SOUND</div>
     ${groups}
   `;
 }
@@ -794,11 +775,10 @@ function showMenu(tab) {
   if (tab) menuTab = tab;
 
   const tabs = [
-    { id: 'consonants', label: 'Согласные' },
-    { id: 'vowels',     label: 'Гласные'   },
-    { id: 'tones',      label: 'Тоны'      },
-    { id: 'vocab',      label: 'Словарь'   },
-    { id: 'special',    label: 'Special'   },
+    { id: 'consonants', label: 'Consonants' },
+    { id: 'vowels',     label: 'Vowels'   },
+    { id: 'tones',      label: 'Tones'      },
+    { id: 'beginners',  label: 'Lessons'     },
   ];
 
   const tabBar = tabs.map(t =>
@@ -809,84 +789,77 @@ function showMenu(tab) {
 
   if (menuTab === 'consonants') {
     const rows = [
-      ['Средний класс (9)',  'middle'],
-      ['Высокий класс (11)', 'high'],
-      ['Низкий класс (24)',  'low'],
-      ['Все согласные (44)', 'all'],
+      ['Middle class (9)',  'middle'],
+      ['High class (11)', 'high'],
+      ['Low class (24)',  'low'],
+      ['All consonants (44)', 'all'],
     ];
     content = rows.map(([label, mode]) => `
       <div class="menu-section">
         <div class="menu-row-label">${label}</div>
         <div class="mode-btns">
-          <button class="btn-menu" onclick="startQuiz('${mode}')">Прямой</button>
-          <button class="btn-menu" onclick="startReverse('${mode}')">Обратный</button>
+          <button class="btn-menu" onclick="startQuiz('${mode}')">Forward</button>
+          <button class="btn-menu" onclick="startReverse('${mode}')">Reverse</button>
         </div>
       </div>
     `).join('');
   } else if (menuTab === 'vowels') {
     const rows = [
-      ['Краткие (8)',           'vowel-short'],
-      ['Долгие (8)',            'vowel-long'],
-      ['Особые / дифтонги (11)','vowel-special'],
-      ['Все гласные (27)',      'vowel-all'],
+      ['Short (8)',           'vowel-short'],
+      ['Long (8)',            'vowel-long'],
+      ['Special / diphthongs (11)','vowel-special'],
+      ['All vowels (27)',      'vowel-all'],
     ];
     content = rows.map(([label, mode]) => `
       <div class="menu-section">
         <div class="menu-row-label">${label}</div>
         <div class="mode-btns">
-          <button class="btn-menu" onclick="startQuiz('${mode}')">Прямой</button>
-          <button class="btn-menu" onclick="startReverse('${mode}')">Обратный</button>
+          <button class="btn-menu" onclick="startQuiz('${mode}')">Forward</button>
+          <button class="btn-menu" onclick="startReverse('${mode}')">Reverse</button>
         </div>
       </div>
     `).join('') + `
       <div class="menu-section" style="margin-top:8px;">
-        <button class="btn-menu" onclick="showHomophones()" style="width:100%;color:#e94560;border-color:#e9456044;">Одинаковый звук →</button>
+        <button class="btn-menu" onclick="showHomophones()" style="width:100%;color:#e94560;border-color:#e9456044;">Same sound →</button>
       </div>`;
   } else if (menuTab === 'tones') {
     content = `
       <div class="menu-section">
-        <div class="menu-row-label">11 комбинаций знак × класс</div>
-        <button class="btn-menu" onclick="startQuiz('tones')" style="width:100%">Начать</button>
+        <div class="menu-row-label">11 combinations: mark × class</div>
+        <button class="btn-menu" onclick="startQuiz('tones')" style="width:100%">Start</button>
       </div>
     `;
-  } else if (menuTab === 'vocab') {
-    const l1 = VOCAB.filter(v => v.level === 1).length;
-    const l2 = VOCAB.filter(v => v.level === 2).length;
-    const l3 = VOCAB.filter(v => v.level === 3).length;
-    const vocabBtn = (lv, label, total) => {
-      const si = vocabSessionInfo(lv);
-      const match = si && (si.done > 0 || si.correct > 0);
-      const btnLabel = match ? `Продолжить (${si.correct} / ${total})` : 'Начать';
-      const onclick  = match ? `startVocabQuiz(true,false,${lv})` : `startVocabQuiz(false,false,${lv})`;
-      return `<div class="menu-section">
-        <div class="menu-row-label">${label} (${total})</div>
-        <button class="btn-menu" onclick="${onclick}" style="width:100%">${btnLabel}</button>
-      </div>`;
-    };
-    content = `
-      ${vocabBtn(1, 'Уровень 1 — слова', l1)}
-      ${vocabBtn(2, 'Уровень 2 — словосочетания', l2)}
-      ${vocabBtn(3, 'Уровень 3 — предложения', l3)}
-      ${vocabBtn(0, 'Все уровни', VOCAB.length)}`;
-  } else if (menuTab === 'special') {
-    const specialWords = VOCAB.filter(v => v.special);
+  } else if (menuTab === 'beginners') {
+    const lessons = [{ num: 1, label: 'Lesson 1' }, { num: 2, label: 'Lesson 2' }, { num: 3, label: 'Lesson 3' }, { num: 4, label: 'Lesson 4' }, { num: 5, label: 'Lesson 5' }, { num: 6, label: 'Lesson 6' }, { num: 7, label: 'Lesson 7' }, { num: 8, label: 'Lesson 8' }, { num: 9, label: 'Lesson 9' }, { num: 10, label: 'Lesson 10' }];
     content = `
       <div class="menu-section">
-        <div class="menu-row-label">Особые слова (${specialWords.length})</div>
-        <button class="btn-menu" onclick="startVocabQuiz(false, true)" style="width:100%">Начать</button>
-      </div>`;
+        <div class="menu-row-label" style="font-size:11px;letter-spacing:1.5px;color:#8899aa;margin-bottom:4px;">THAI FOR BEGINNERS</div>
+      </div>
+      ${lessons.map(({ num, label }) => {
+        const total = VOCAB.filter(v => v.lesson === num).length;
+        const modeRow = (recall, modeLabel) => {
+          const si = vocabSessionInfo(0, num, recall);
+          const match = si && (si.done > 0 || si.correct > 0);
+          const r = recall ? 'true' : 'false';
+          const buttons = match
+            ? `<div class="mode-btns">
+                 <button class="btn-menu" onclick="startVocabQuiz(true,false,0,${num},${r})">Continue (${si.correct} / ${total})</button>
+                 <button class="btn-menu" onclick="startVocabQuiz(false,false,0,${num},${r})">Start over</button>
+               </div>`
+            : `<button class="btn-menu" onclick="startVocabQuiz(false,false,0,${num},${r})" style="width:100%">Start</button>`;
+          return `<div class="menu-row-label" style="margin-top:6px;">${modeLabel}</div>${buttons}`;
+        };
+        return `<div class="menu-section">
+          <div class="menu-row-label" style="color:#cdd;font-weight:bold;">${label} (${total} words)</div>
+          ${modeRow(false, 'Read (Thai → transcription)')}
+          ${modeRow(true,  'Learn words (meaning → transcription)')}
+        </div>`;
+      }).join('')}`;
   }
 
-  const fsBar = fsReady
-    ? `<div style="text-align:center;font-size:12px;color:#4ecca3;margin-bottom:6px;">● прогресс сохраняется в файл</div>`
-    : `<div style="text-align:center;font-size:12px;color:#e94560;margin-bottom:6px;">
-         ○ файл не подключён —
-         <button onclick="fsConnect()" style="background:none;border:none;color:#e94560;font-size:12px;cursor:pointer;text-decoration:underline;padding:0;">подключить</button>
-       </div>`;
   document.getElementById('card').innerHTML = `
     <div class="menu-title">studyThai</div>
     <div class="tab-bar">${tabBar}</div>
-    ${fsBar}
     ${content}
   `;
 }
@@ -930,7 +903,7 @@ function startQuiz(mode) {
   const smallLetter = isVowelMode || isToneMode;
 
   document.getElementById('card').innerHTML = `
-    <button class="btn-back" onclick="showMenu()">← Меню</button>
+    <button class="btn-back" onclick="showMenu()">← Menu</button>
     <div class="class-title">${classLabel}</div>
     <div class="progress" id="progress"></div>
     ${!isToneMode ? '<div class="letter-cls" id="letter-cls"></div>' : ''}
@@ -940,12 +913,13 @@ function startQuiz(mode) {
     <div class="fields">
       <div class="field-wrap">
         <input type="text" id="${isToneMode ? 'inp-name' : 'inp-sound'}"
-               placeholder="${isToneMode ? 'тон...' : 'звук...'}"
+               placeholder="${isToneMode ? 'tone...' : 'sound...'}"
                onkeydown="handleKey(event)" autocomplete="off" spellcheck="false">
       </div>
     </div>
-    <button id="action-btn" onclick="checkAnswer()">Проверить →</button>
-    <button id="prev-btn" class="btn-outline" onclick="prevQuiz()" style="margin-top:8px;font-size:15px;padding:10px;display:none;">← Назад</button>
+    <button id="action-btn" onclick="checkAnswer()">Check →</button>
+    <button id="skip-btn" class="btn-outline" onclick="skipQuiz()" style="margin-top:8px;font-size:15px;padding:10px;">Skip</button>
+    <button id="prev-btn" class="btn-outline" onclick="prevQuiz()" style="margin-top:8px;font-size:15px;padding:10px;display:none;">← Back</button>
     <div class="feedback" id="feedback"></div>
     <div class="answer-reveal" id="reveal"></div>
   `;
@@ -961,7 +935,7 @@ function updateProgress() {
   const correct   = correctSet.size;
   const remaining = activeLetters.length - correct;
   document.getElementById('progress').textContent =
-    `осталось: ${remaining} | правильно: ${correct} / ${activeLetters.length}`;
+    `remaining: ${remaining} | correct: ${correct} / ${activeLetters.length}`;
 }
 
 function prevQuiz() {
@@ -978,6 +952,8 @@ function prevQuiz() {
   document.getElementById('feedback').className   = 'feedback';
   document.getElementById('reveal').textContent   = '';
 
+  const sb = document.getElementById('skip-btn');
+  if (sb) sb.style.display = 'block';
   if (isReverseMode) {
     document.getElementById('next-btn').style.display = 'none';
     renderReverseCard();
@@ -990,7 +966,7 @@ function prevQuiz() {
     const inp = document.getElementById(isToneMode ? 'inp-name' : 'inp-sound');
     inp.value     = '';
     inp.className = '';
-    document.getElementById('action-btn').textContent = 'Проверить →';
+    document.getElementById('action-btn').textContent = 'Check →';
     inp.focus();
   }
 
@@ -1014,15 +990,15 @@ function checkAnswer() {
     document.getElementById('inp-name').className = ok ? 'ok' : 'bad';
     if (ok) {
       correctSet.add(item.char);
-      fb.textContent = '✓ Правильно!';
+      fb.textContent = '✓ Correct!';
       fb.className = 'feedback correct';
       if (pos + 1 >= queue.length && retry.length === 0) { setTimeout(showDone, 800); return; }
     } else {
       retry.push(item);
-      fb.textContent = '✗ Неверно — повторим позже';
+      fb.textContent = '✗ Wrong — will retry later';
       fb.className = 'feedback wrong';
     }
-    document.getElementById('reveal').innerHTML = `Тон: <span>${item.name}</span>`;
+    document.getElementById('reveal').innerHTML = `Tone: <span>${item.name}</span>`;
   } else {
     const inpSound = document.getElementById('inp-sound').value;
     if (!inpSound) return;
@@ -1033,24 +1009,77 @@ function checkAnswer() {
     document.getElementById('inp-sound').className = ok ? 'ok' : 'bad';
     if (ok) {
       correctSet.add(item.char);
-      fb.textContent = '✓ Правильно!';
+      fb.textContent = '✓ Correct!';
       fb.className = 'feedback correct';
       if (pos + 1 >= queue.length && retry.length === 0) { setTimeout(showDone, 800); return; }
     } else {
       retry.push(item);
-      fb.textContent = '✗ Неверно — повторим позже';
+      fb.textContent = '✗ Wrong — will retry later';
       fb.className = 'feedback wrong';
     }
     const soundDisplay = (item.soundFinal && item.soundFinal !== item.sound)
       ? `${item.sound} / ${item.soundFinal}` : item.sound;
-    document.getElementById('reveal').innerHTML = `Звук: <span>${soundDisplay}</span>`;
+    document.getElementById('reveal').innerHTML = `Sound: <span>${soundDisplay}</span>`;
     const ln = document.getElementById('letter-name');
     if (ln) ln.style.visibility = 'visible';
   }
 
   updateProgress();
   updatePrevBtn(quizHistory);
-  document.getElementById('action-btn').textContent = 'Следующая →';
+  document.getElementById('action-btn').textContent = 'Next →';
+  const sb = document.getElementById('skip-btn');
+  if (sb) sb.style.display = 'none';
+}
+
+function skipQuiz() {
+  if (answered) return;
+  quizHistory.push({ pos, retry: [...retry], correctSet: new Set(correctSet), queue: [...queue] });
+  const item = queue.splice(pos, 1)[0];
+  retry.push(item);
+  if (pos >= queue.length) {
+    if (retry.length === 0) { showDone(); return; }
+    queue = shuffle(retry);
+    retry = [];
+    pos = 0;
+    quizHistory = [];
+  }
+  answered = false;
+  document.getElementById('letter').textContent = current().char;
+  if (isToneMode) document.getElementById('subtitle').textContent = current().subtitle;
+  const ln = document.getElementById('letter-name');
+  if (ln) ln.style.visibility = 'hidden';
+  updateWordHint();
+  const inp = document.getElementById(isToneMode ? 'inp-name' : 'inp-sound');
+  inp.value = '';
+  inp.className = '';
+  document.getElementById('feedback').textContent = '';
+  document.getElementById('feedback').className = 'feedback';
+  document.getElementById('reveal').textContent = '';
+  document.getElementById('action-btn').textContent = 'Check →';
+  updateProgress();
+  updatePrevBtn(quizHistory);
+  inp.focus();
+}
+
+function skipReverse() {
+  if (answered) return;
+  quizHistory.push({ pos, retry: [...retry], correctSet: new Set(correctSet), queue: [...queue] });
+  const item = queue.splice(pos, 1)[0];
+  retry.push(item);
+  if (pos >= queue.length) {
+    if (retry.length === 0) { showDone(); return; }
+    queue = shuffle(retry);
+    retry = [];
+    pos = 0;
+    quizHistory = [];
+  }
+  answered = false;
+  document.getElementById('feedback').textContent = '';
+  document.getElementById('feedback').className = 'feedback';
+  document.getElementById('reveal').textContent = '';
+  renderReverseCard();
+  updateProgress();
+  updatePrevBtn(quizHistory);
 }
 
 function next() {
@@ -1076,20 +1105,22 @@ function next() {
   document.getElementById('feedback').textContent = '';
   document.getElementById('feedback').className = 'feedback';
   document.getElementById('reveal').textContent = '';
-  document.getElementById('action-btn').textContent = 'Проверить →';
+  document.getElementById('action-btn').textContent = 'Check →';
+  const sb = document.getElementById('skip-btn');
+  if (sb) sb.style.display = 'block';
   updateProgress();
   updatePrevBtn(quizHistory);
 }
 
 function showDone() {
   const repeatBtn = lastStart
-    ? `<button onclick="repeatQuiz()" style="margin-bottom:12px;">Повторить</button>`
+    ? `<button onclick="repeatQuiz()" style="margin-bottom:12px;">Repeat</button>`
     : '';
   document.getElementById('card').innerHTML = `
-    <div style="font-size:28px; color:#4ecca3; margin-bottom:20px;">Все буквы выучены!</div>
-    <div style="font-size:18px; color:#888; margin-bottom:30px;">${activeLetters.length} из ${activeLetters.length} правильно</div>
+    <div style="font-size:28px; color:#4ecca3; margin-bottom:20px;">All letters learned!</div>
+    <div style="font-size:18px; color:#888; margin-bottom:30px;">${activeLetters.length} of ${activeLetters.length} correct</div>
     ${repeatBtn}
-    <button onclick="showMenu()">Выбрать класс</button>
+    <button onclick="showMenu()">Choose class</button>
   `;
 }
 
@@ -1101,4 +1132,4 @@ function handleKey(e) {
   if (e.key === 'Enter') checkAnswer();
 }
 
-(async () => { await fsInit(); showMenu(); })();
+fsInit(); showMenu();
