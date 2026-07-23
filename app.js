@@ -526,18 +526,6 @@ function fbInit() {
   fbAuth = firebase.auth();
   fbDb   = firebase.firestore();
 
-  // Required for signInWithRedirect: process the redirect token on page load
-  // Without this call mobile browsers lose the auth session after redirect
-  fbAuth.getRedirectResult()
-    .then(result => {
-      if (result && result.user) {
-        fbDebug('Redirect OK: ' + result.user.email);
-      } else {
-        fbDebug('No redirect result (normal on first load)');
-      }
-    })
-    .catch(e => fbDebug('Redirect error: ' + e.code + ' — ' + e.message));
-
   fbAuth.onAuthStateChanged(async user => {
     fbUser = user;
     fbDebug(user ? 'Auth: signed in as ' + user.email : 'Auth: not signed in');
@@ -584,7 +572,7 @@ function fbCloudWrite() {
 
 function signInGoogle() {
   if (!fbAuth) return;
-  fbAuth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
+  fbAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).catch(e => fbDebug('Sign-in error: ' + e.code));
 }
 
 function fbSignOut() {
