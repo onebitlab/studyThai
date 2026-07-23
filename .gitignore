@@ -3,7 +3,8 @@ studyThai_progress.json
 progress.json
 
 # Локальные настройки Claude Code
-.claude/settings.local.json
+.claude/
+CLAUDE.md
 
 # macOS
 .DS_Store
