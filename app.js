@@ -512,6 +512,17 @@ function fbInit() {
   firebase.initializeApp(FB_CONFIG);
   fbAuth = firebase.auth();
   fbDb   = firebase.firestore();
+
+  // Required for signInWithRedirect: process the redirect token on page load
+  // Without this call mobile browsers lose the auth session after redirect
+  fbAuth.getRedirectResult()
+    .then(result => {
+      if (result && result.user) {
+        console.log('Redirect sign-in OK:', result.user.email);
+      }
+    })
+    .catch(e => console.warn('Redirect error:', e.code, e.message));
+
   fbAuth.onAuthStateChanged(async user => {
     fbUser = user;
     if (user) await fbCloudRead();
