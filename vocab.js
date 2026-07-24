@@ -761,7 +761,7 @@ const VOCAB = [
   { en: 'NIGHT', trans: 'keuun', thai: 'คืน', level: 1, lesson: 5 },
 
   // -- Люди и социальное --
-  { en: 'LOVED ONE', trans: 'feen', thai: 'แฟน', level: 1, lesson: 5 },
+  { en: 'LOVED ONE', trans: 'faen', thai: 'แฟน', level: 1, lesson: 5 },
   { en: 'FRIEND', trans: 'peuan', thai: 'เพื่อน', level: 1, lesson: 5 },
   { en: 'FREE / AVAILABLE', trans: 'waang', thai: 'ว่าง', level: 1, lesson: 5 },
   { en: 'BUSY', trans: 'yung', thai: 'ยุ่ง', level: 1, lesson: 5 },
