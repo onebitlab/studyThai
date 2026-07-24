@@ -1194,7 +1194,7 @@ const VOCAB = [
   { en: 'TO WASH', trans: 'laang', thai: 'ล้าง', level: 1, lesson: 8 },
   { en: 'TO WASH HAIR', trans: 'sa-pom', thai: 'สระผม', level: 2, lesson: 8 },
   { en: 'TO TAKE A BATH', trans: 'aap-naam', thai: 'อาบน้ำ', level: 2, lesson: 8 },
-  { en: 'TO BRUSH TEETH', trans: 'bpreeng-fan', thai: 'แปรงฟัน', level: 2, lesson: 8 },
+  { en: 'TO BRUSH TEETH', trans: 'bpraeng-fan', thai: 'แปรงฟัน', level: 2, lesson: 8 },
   { en: 'TO DO LAUNDRY', trans: 'sak-paa', thai: 'ซักผ้า', level: 2, lesson: 8 },
   { en: 'TO ACHE', trans: 'bpuat', thai: 'ปวด', level: 1, lesson: 8 },
   { en: 'TO HURT / INJURE', trans: 'jep', thai: 'เจ็บ', level: 1, lesson: 8 },
