@@ -770,7 +770,6 @@ const VOCAB = [
   { en: 'TO WAKE SOMEONE UP', trans: 'bpluk', thai: 'ปลุก', level: 1, lesson: 5 },
   { en: 'TO TAKE A TRIP', trans: 'bpai-tiao', thai: 'ไปเที่ยว', level: 1, lesson: 5 },
   { en: 'HELLO (PHONE)', trans: 'han-loh', thai: 'ฮัลโหล', level: 1, lesson: 5 },
-  { en: 'O.K.', trans: 'oo-kee', thai: 'โอเค', level: 1, lesson: 5 },
   { en: 'BY ONESELF', trans: 'kon-diao', thai: 'คนเดียว', level: 2, lesson: 5 },
   { en: 'TO GO TOGETHER', trans: 'bpai-duai-gan', thai: 'ไปด้วยกัน', level: 2, lesson: 5 },
   { en: 'TO COME TO PICK UP', trans: 'maa-rap', thai: 'มารับ', level: 2, lesson: 5 },
