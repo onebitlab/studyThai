@@ -749,7 +749,6 @@ const VOCAB = [
   { en: 'THIS YEAR', trans: 'bpii-nii', thai: 'ปีนี้', level: 2, lesson: 5 },
   { en: 'LAST YEAR', trans: 'bpii-tii-laeo', thai: 'ปีที่แล้ว', level: 2, lesson: 5 },
   { en: 'NEXT YEAR', trans: 'bpii-naa', thai: 'ปีหน้า', level: 2, lesson: 5 },
-  { en: 'TWO DAYS AGO', trans: 'sorng-wan-gorn', thai: 'สองวันก่อน', level: 2, lesson: 5 },
   { en: 'EVERY DAY', trans: 'tuk-wan', thai: 'ทุกวัน', level: 2, lesson: 5 },
   { en: 'EVERY WEEK', trans: 'tuk-aa-tit', thai: 'ทุกอาทิตย์', level: 2, lesson: 5 },
   { en: 'EVERY MONTH', trans: 'tuk-deuan', thai: 'ทุกเดือน', level: 2, lesson: 5 },
