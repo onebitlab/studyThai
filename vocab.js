@@ -1274,6 +1274,5 @@ const VOCAB = [
 
   // -- Прочее --
   { en: 'DISCO', trans: 'dit-sa-goh', thai: 'ดิสโก้', level: 1, lesson: 6 },
-  { en: 'KARAOKE', trans: 'kaa-raa-oh-ge', thai: 'คาราโอเกะ', level: 1, lesson: 6 },
   { en: 'MAY I SPEAK WITH', trans: 'kor-saai-gap', thai: 'ขอสายกับ', level: 2, lesson: 6 },
 ];
