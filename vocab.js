@@ -1243,7 +1243,6 @@ const VOCAB = [
 
   // -- Существительные --
   { en: 'WORK / EVENT', trans: 'ngaan', thai: 'งาน', level: 1, lesson: 6 },
-  { en: 'ERRAND', trans: 'tu-ra', thai: 'ธุระ', level: 1, lesson: 6 },
   { en: 'SONG', trans: 'pleeng', thai: 'เพลง', level: 1, lesson: 6 },
   { en: 'BY / VIA', trans: 'doi', thai: 'โดย', level: 1, lesson: 6 },
 
