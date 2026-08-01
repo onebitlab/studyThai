@@ -1251,7 +1251,6 @@ const VOCAB = [
   { en: 'TRAIN', trans: 'rot-fai', thai: 'รถไฟ', level: 2, lesson: 6 },
   { en: 'SUBWAY', trans: 'rot-fai-dtai-din', thai: 'รถไฟใต้ดิน', level: 2, lesson: 6 },
   { en: 'BUS', trans: 'rot-mee', thai: 'รถเมล์', level: 2, lesson: 6 },
-  { en: 'TAXI', trans: 'taek-sii', thai: 'แท็กซี่', level: 1, lesson: 6 },
   { en: 'SONGTAEW', trans: 'sorng-taeo', thai: 'สองแถว', level: 2, lesson: 6 },
   { en: 'TRICYCLE TAXI', trans: 'saam-lor', thai: 'สามล้อ', level: 2, lesson: 6 },
   { en: 'TUK-TUK', trans: 'dtuk-dtuk', thai: 'ตุ๊กตุ๊ก', level: 1, lesson: 6 },
