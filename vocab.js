@@ -372,7 +372,7 @@ const VOCAB = [
   { en: 'HOW MANY MONKEYS DO YOU HAVE?', trans: 'kun mii ling gii dtuua?', thai: 'คุณมีลิงกี่ตัว?', level: 3 , lesson: 10 },
   { en: 'HOW MANY MONKEYS DO WE HAVE?', trans: 'rao mii ling gii dtuua?', thai: 'เรามีลิงกี่ตัว?', level: 3 , lesson: 10 },
   { en: 'HOW MANY COCONUTS DO WE HAVE?', trans: 'rao mii ma-praao gii luuk?', thai: 'เรามีมะพร้าวกี่ลูก?', level: 3 , lesson: 10 },
-  { en: 'HOW MUCH APPLE COST?', trans: 'ae-bpəən l raa-kaa taorai?', thai: 'แอปเปิ้ลราคาเท่าไร?', level: 3 , lesson: 6 },
+  { en: 'HOW MUCH APPLE COST?', trans: 'aep-bpern raa-kaa taorai?', thai: 'แอปเปิ้ลราคาเท่าไร?', level: 3 , lesson: 6 },
   { en: 'WHICH DAY DO YOU PLAY MUSIC?', trans: 'kun leen don-dtrii wan nai?', thai: 'คุณเล่นดนตรีวันไหน?', level: 3 , lesson: 2 },
   { en: 'ARE YOU AVAILABLE ON SATURDAY?', trans: 'kun waang wan sao mai?', thai: 'คุณว่างวันเสาร์ไหม?', level: 3 , lesson: 2 },
   { en: 'CAN YOU GIVE ME YOUR PHONE NUMBER?', trans: 'kor ber dai-mai?', thai: 'ขอเบอร์ได้ไหม?', level: 3 , lesson: 3 },
