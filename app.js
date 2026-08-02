@@ -87,6 +87,7 @@ const SPECIAL_VOWELS = [
   { char: 'ใก',  name: 'sara ai mai muan',  nameAlt: ['sara ai','mai muan','สระใอ'],  sound: 'ai', soundAlt: ['ai'] },
   { char: 'เกา', name: 'sara ao',   nameAlt: ['sara ao','สระเอา'],               sound: 'ao',  soundAlt: ['ao'] },
   { char: 'กำ',  name: 'sara am',   nameAlt: ['sara am','สระอำ'],               sound: 'am',  soundAlt: ['am'] },
+  { char: 'เกย', name: 'sara oei',  nameAlt: ['sara oei','สระเอย'],             sound: 'oei', soundAlt: ['oei'] },
 ];
 
 const TONE_RULES = [
@@ -882,8 +883,8 @@ function showMenu(tab) {
     const rows = [
       ['Short (8)',           'vowel-short'],
       ['Long (8)',            'vowel-long'],
-      ['Special / diphthongs (11)','vowel-special'],
-      ['All vowels (27)',      'vowel-all'],
+      ['Special / diphthongs (12)','vowel-special'],
+      ['All vowels (28)',      'vowel-all'],
     ];
     content = rows.map(([label, mode]) => `
       <div class="menu-section">
