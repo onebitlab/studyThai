@@ -280,7 +280,7 @@ function startVocabQuiz(resume = false, specialOnly = false, level = 0, lesson =
     </div>
     <button id="action-btn" onclick="checkVocabAnswer()">Check →</button>
     <button id="skip-btn" class="btn-outline" onclick="skipVocab()" style="margin-top:8px;font-size:15px;padding:10px;">Skip</button>
-    <button id="prev-btn" class="btn-outline" onclick="prevVocab()" style="margin-top:8px;font-size:15px;padding:10px;display:none;">← Back</button>
+    <button id="prev-btn" class="btn-outline" onclick="prevVocab()" style="margin-top:8px;font-size:15px;padding:10px;">← Back</button>
     <div class="feedback" id="feedback"></div>
     <div class="answer-reveal" id="reveal"></div>
   `;
@@ -309,7 +309,7 @@ function updateVocabProgress() {
 function updatePrevBtn(hist) {
   const btn = document.getElementById('prev-btn');
   if (!btn) return;
-  btn.style.display = hist.length > 0 ? 'block' : 'none';
+  btn.style.display = 'block';
 }
 
 function prevVocab() {
@@ -705,7 +705,7 @@ function startReverse(mode) {
     <div class="answer-reveal" id="reveal"></div>
     <button id="next-btn" onclick="nextReverse()" style="display:none; margin-top:10px;">Next →</button>
     <button id="skip-btn" class="btn-outline" onclick="skipReverse()" style="margin-top:8px;font-size:15px;padding:10px;">Skip</button>
-    <button id="prev-btn" class="btn-outline" onclick="prevQuiz()" style="margin-top:8px;font-size:15px;padding:10px;display:none;">← Back</button>
+    <button id="prev-btn" class="btn-outline" onclick="prevQuiz()" style="margin-top:8px;font-size:15px;padding:10px;">← Back</button>
   `;
   renderReverseCard();
   updateProgress();
@@ -1005,7 +1005,7 @@ function startQuiz(mode) {
     </div>
     <button id="action-btn" onclick="checkAnswer()">Check →</button>
     <button id="skip-btn" class="btn-outline" onclick="skipQuiz()" style="margin-top:8px;font-size:15px;padding:10px;">Skip</button>
-    <button id="prev-btn" class="btn-outline" onclick="prevQuiz()" style="margin-top:8px;font-size:15px;padding:10px;display:none;">← Back</button>
+    <button id="prev-btn" class="btn-outline" onclick="prevQuiz()" style="margin-top:8px;font-size:15px;padding:10px;">← Back</button>
     <div class="feedback" id="feedback"></div>
     <div class="answer-reveal" id="reveal"></div>
   `;
