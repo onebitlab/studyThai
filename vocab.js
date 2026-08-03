@@ -818,7 +818,7 @@ const VOCAB = [
   { en: 'DELICIOUS', trans: 'a-roi', thai: 'อร่อย', level: 1, lesson: 7 },
   { en: 'SWEET', trans: 'waan', thai: 'หวาน', level: 1, lesson: 7 },
   { en: 'SALTY', trans: 'kem', thai: 'เค็ม', level: 1, lesson: 7 },
-  { en: 'TASTELESS', trans: 'juut', thai: 'จืด', level: 1, lesson: 7 },
+  { en: 'TASTELESS', trans: 'jeuut', thai: 'จืด', level: 1, lesson: 7 },
   { en: 'SOUR', trans: 'bpriao', thai: 'เปรี้ยว', level: 1, lesson: 7 },
   { en: 'SPICY', trans: 'pet', thai: 'เผ็ด', level: 1, lesson: 7 },
 
