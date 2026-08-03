@@ -811,7 +811,7 @@ const VOCAB = [
   { en: 'TIRED', trans: 'neuai', thai: 'เหนื่อย', level: 1, lesson: 7 },
   { en: 'SLEEPY', trans: 'nguang', thai: 'ง่วง', level: 1, lesson: 7 },
   { en: 'LOUD', trans: 'dang', thai: 'ดัง', level: 1, lesson: 7 },
-  { en: 'BOTHERED BY NOISE', trans: 'nuak-huu', thai: 'หนวกหู', level: 2, lesson: 7 },
+
 
   // -- Вкус --
   { en: 'DELICIOUS', trans: 'a-roi', thai: 'อร่อย', level: 1, lesson: 7 },
