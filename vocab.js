@@ -806,7 +806,6 @@ const VOCAB = [
   { en: 'TO FINISH', trans: 'set', thai: 'เสร็จ', level: 1, lesson: 7 },
   { en: 'TO SWIM', trans: 'waai-naam', thai: 'ว่ายน้ำ', level: 1, lesson: 7 },
   { en: 'TO FALL ASLEEP', trans: 'norn-lap', thai: 'นอนหลับ', level: 2, lesson: 7 },
-  { en: 'CAN\'T FALL ASLEEP', trans: 'norn-mai-lap', thai: 'นอนไม่หลับ', level: 2, lesson: 7 },
 
   // -- Состояния --
   { en: 'TIRED', trans: 'neuai', thai: 'เหนื่อย', level: 1, lesson: 7 },
