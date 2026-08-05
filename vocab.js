@@ -1201,7 +1201,7 @@ const VOCAB = [
 
   // -- Прочее --
   { en: 'PER', trans: 'la', thai: 'ละ', level: 1, lesson: 8 },
-  { en: 'TIME (OCCURRENCE)', trans: 'krang', thai: 'ครั้ง', level: 1, lesson: 8 },
+
 
   // ── Урок 6 ──────────────────────────────────────────────────────
 
