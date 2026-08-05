@@ -828,7 +828,7 @@ const VOCAB = [
 
   // -- Размер и форма --
   { en: 'BIG', trans: 'yai', thai: 'ใหญ่', level: 1, lesson: 10 },
-  { en: 'BIG / GROWN-UP', trans: 'dtoo', thai: 'โต', level: 1, lesson: 10 },
+  { en: 'BIG / GROWN-UP', trans: 'dtoh', thai: 'โต', level: 1, lesson: 10 },
   { en: 'SMALL', trans: 'lek', thai: 'เล็ก', level: 1, lesson: 10 },
   { en: 'FAT', trans: 'uan', thai: 'อ้วน', level: 1, lesson: 10 },
   { en: 'THIN (LEAN)', trans: 'porm', thai: 'ผอม', level: 1, lesson: 10 },
@@ -1093,7 +1093,7 @@ const VOCAB = [
   { en: 'RAT / MOUSE', trans: 'nuu', thai: 'หนู', level: 1, lesson: 9 },
   { en: 'SNAKE', trans: 'nguu', thai: 'งู', level: 1, lesson: 9 },
   { en: 'TIGER', trans: 'seua', thai: 'เสือ', level: 1, lesson: 9 },
-  { en: 'LION', trans: 'sing-dtoo', thai: 'สิงโต', level: 1, lesson: 9 },
+  { en: 'LION', trans: 'sing-dtoh', thai: 'สิงโต', level: 1, lesson: 9 },
   { en: 'CROCODILE', trans: 'jo-ra-kee', thai: 'จระเข้', level: 1, lesson: 9 },
   { en: 'TURTLE', trans: 'dtao', thai: 'เต่า', level: 1, lesson: 9 },
   { en: 'BUTTERFLY', trans: 'pii-seua', thai: 'ผีเสื้อ', level: 1, lesson: 9 },
@@ -1195,7 +1195,7 @@ const VOCAB = [
   { en: 'TO HURT / INJURE', trans: 'jep', thai: 'เจ็บ', level: 1, lesson: 8 },
   { en: 'TO CATCH A COLD', trans: 'bpen-wat', thai: 'เป็นหวัด', level: 2, lesson: 8 },
   { en: 'TO CUT', trans: 'dtat', thai: 'ตัด', level: 1, lesson: 8 },
-  { en: 'TO SHAVE', trans: 'goon', thai: 'โกน', level: 1, lesson: 8 },
+  { en: 'TO SHAVE', trans: 'gohn', thai: 'โกน', level: 1, lesson: 8 },
   { en: 'TO SHOP', trans: 'suu-korng', thai: 'ซื้อของ', level: 2, lesson: 8 },
   { en: 'TO GO SHOPPING', trans: 'bpai-chop-bping', thai: 'ไปชอปปิ้ง', level: 2, lesson: 8 },
 
