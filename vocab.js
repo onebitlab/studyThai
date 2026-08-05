@@ -1165,7 +1165,7 @@ const VOCAB = [
   { en: 'TROUSERS', trans: 'gaang-geeng', thai: 'กางเกง', level: 1, lesson: 8 },
   { en: 'SHOES', trans: 'rorng-tao', thai: 'รองเท้า', level: 1, lesson: 8 },
   { en: 'SOCK', trans: 'tung-tao', thai: 'ถุงเท้า', level: 1, lesson: 8 },
-  { en: 'GLOVE', trans: 'tung-muu', thai: 'ถุงมือ', level: 2, lesson: 8 },
+  { en: 'GLOVE', trans: 'tung-meuu', thai: 'ถุงมือ', level: 2, lesson: 8 },
   { en: 'PANTYHOSE', trans: 'tung-norng', thai: 'ถุงน่อง', level: 2, lesson: 8 },
   { en: 'NECKTIE', trans: 'nek-tai', thai: 'เน็คไท', level: 2, lesson: 8 },
   { en: 'BELT', trans: 'kem-kat', thai: 'เข็มขัด', level: 2, lesson: 8 },
