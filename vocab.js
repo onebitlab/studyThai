@@ -1146,7 +1146,7 @@ const VOCAB = [
   { en: 'BODY', trans: 'dtuua', thai: 'ตัว', level: 1, lesson: 8 },
   { en: 'BONE', trans: 'gra-duuk', thai: 'กระดูก', level: 1, lesson: 8 },
   { en: 'BRAIN', trans: 'sa-morng', thai: 'สมอง', level: 2, lesson: 8 },
-  { en: 'LIVER', trans: 'dtap', thai: 'ตับ', level: 2, lesson: 8 },
+
   { en: 'KIDNEY', trans: 'dtai', thai: 'ไต', level: 2, lesson: 8 },
   { en: 'INTESTINE', trans: 'sai', thai: 'ไส้', level: 2, lesson: 8 },
   { en: 'PAUNCH', trans: 'pung', thai: 'พุง', level: 2, lesson: 8 },
@@ -1169,7 +1169,7 @@ const VOCAB = [
   { en: 'PANTYHOSE', trans: 'tung-norng', thai: 'ถุงน่อง', level: 2, lesson: 8 },
   { en: 'NECKTIE', trans: 'nek-tai', thai: 'เน็คไท', level: 2, lesson: 8 },
   { en: 'BELT', trans: 'kem-kat', thai: 'เข็มขัด', level: 2, lesson: 8 },
-  { en: 'BROOCH / PIN', trans: 'kem-glat', thai: 'เข็มกลัด', level: 2, lesson: 8 },
+
   { en: 'NECKLACE', trans: 'soi', thai: 'สร้อย', level: 1, lesson: 8 },
   { en: 'EARRING', trans: 'dtaang-huu', thai: 'ต่างหู', level: 1, lesson: 8 },
   { en: 'RING', trans: 'waen', thai: 'แหวน', level: 1, lesson: 8 },
