@@ -79,7 +79,8 @@ const SPECIAL_VOWELS = [
   { char: 'เกือ', name: 'sara eua', nameAlt: ['sara eua','sara uea','สระเอือ'], sound: 'eua', soundAlt: ['eua'] },
   { char: 'เกิ',  name: 'sara er (short)', nameAlt: ['sara er','sara er short','สระเอิ'], sound: 'er',  soundAlt: ['er'] },
   { char: 'เกอ',  name: 'sara er (long)',  nameAlt: ['sara er','sara er long','สระเออ'],  sound: 'er',  soundAlt: ['er'] },
-  { char: 'กัว',  name: 'sara ua',  nameAlt: ['sara ua','สระอัว'],               sound: 'uua', soundAlt: ['uua'] },
+  { char: 'กัว',  name: 'sara ua (long)',  nameAlt: ['sara ua','sara ua long','สระอัว'],   sound: 'uua', soundAlt: ['uua'] },
+  { char: 'กวด',  name: 'sara ua (short)', nameAlt: ['sara ua','sara ua short','สระอัวสั้น'], sound: 'ua',  soundAlt: ['ua'] },
   { char: 'กวย',  name: 'sara uai', nameAlt: ['sara uai','สระวย'],              sound: 'uai', soundAlt: ['uai'] },
   { char: 'กอย',  name: 'sara oi',  nameAlt: ['sara oi','สระอย'],               sound: 'oi',  soundAlt: ['oi'] },
   { char: 'กาย',  name: 'sara aai', nameAlt: ['sara aai','สระอาย'],             sound: 'aai', soundAlt: ['aai'] },
@@ -883,8 +884,8 @@ function showMenu(tab) {
     const rows = [
       ['Short (8)',           'vowel-short'],
       ['Long (8)',            'vowel-long'],
-      ['Special / diphthongs (12)','vowel-special'],
-      ['All vowels (28)',      'vowel-all'],
+      ['Special / diphthongs (13)','vowel-special'],
+      ['All vowels (29)',      'vowel-all'],
     ];
     content = rows.map(([label, mode]) => `
       <div class="menu-section">
