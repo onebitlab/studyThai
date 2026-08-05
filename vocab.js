@@ -1123,7 +1123,7 @@ const VOCAB = [
   { en: 'MOUTH', trans: 'bpaak', thai: 'ปาก', level: 1, lesson: 8 },
   { en: 'TOOTH', trans: 'fan', thai: 'ฟัน', level: 1, lesson: 8 },
   { en: 'TONGUE', trans: 'lin', thai: 'ลิ้น', level: 1, lesson: 8 },
-  { en: 'MUSTACHE', trans: 'nuat', thai: 'หนวด', level: 1, lesson: 8 },
+
   { en: 'BEARD', trans: 'krao', thai: 'เครา', level: 1, lesson: 8 },
   { en: 'DIMPLE', trans: 'lak-yim', thai: 'ลักยิ้ม', level: 2, lesson: 8 },
 
