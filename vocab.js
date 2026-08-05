@@ -1129,7 +1129,7 @@ const VOCAB = [
 
   // -- Тело --
   { en: 'NECK', trans: 'kor', thai: 'คอ', level: 1, lesson: 8 },
-  { en: 'BODY HAIR', trans: 'kon', thai: 'ขน', level: 1, lesson: 8 },
+
   { en: 'STOMACH', trans: 'torng', thai: 'ท้อง', level: 1, lesson: 8 },
   { en: 'NAVEL', trans: 'sa-deuu', thai: 'สะดือ', level: 1, lesson: 8 },
   { en: 'HEART', trans: 'huua-jai', thai: 'หัวใจ', level: 1, lesson: 8 },
