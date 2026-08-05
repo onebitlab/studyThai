@@ -1196,7 +1196,7 @@ const VOCAB = [
   { en: 'TO CATCH A COLD', trans: 'bpen-wat', thai: 'เป็นหวัด', level: 2, lesson: 8 },
   { en: 'TO CUT', trans: 'dtat', thai: 'ตัด', level: 1, lesson: 8 },
   { en: 'TO SHAVE', trans: 'gohn', thai: 'โกน', level: 1, lesson: 8 },
-  { en: 'TO SHOP', trans: 'suu-korng', thai: 'ซื้อของ', level: 2, lesson: 8 },
+  { en: 'TO SHOP', trans: 'seuu-korng', thai: 'ซื้อของ', level: 2, lesson: 8 },
   { en: 'TO GO SHOPPING', trans: 'bpai-chop-bping', thai: 'ไปชอปปิ้ง', level: 2, lesson: 8 },
 
   // -- Прочее --
