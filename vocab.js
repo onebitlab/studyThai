@@ -1180,7 +1180,7 @@ const VOCAB = [
   { en: 'SOAP', trans: 'sabuu', thai: 'สบู่', level: 1, lesson: 8 },
   { en: 'TOOTHBRUSH', trans: 'bpreeng-sii-fan', thai: 'แปรงสีฟัน', level: 1, lesson: 8 },
   { en: 'TOOTHPASTE', trans: 'yaa-sii-fan', thai: 'ยาสีฟัน', level: 1, lesson: 8 },
-  { en: 'DETERGENT', trans: 'pong-sak-fook', thai: 'ผงซักฟอก', level: 2, lesson: 8 },
+
 
   // -- Глаголы и действия --
   { en: 'TO WEAR / PUT ON', trans: 'sai', thai: 'ใส่', level: 1, lesson: 8 },
