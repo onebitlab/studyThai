@@ -1172,7 +1172,7 @@ const VOCAB = [
   { en: 'BROOCH / PIN', trans: 'kem-glat', thai: 'เข็มกลัด', level: 2, lesson: 8 },
   { en: 'NECKLACE', trans: 'soi', thai: 'สร้อย', level: 1, lesson: 8 },
   { en: 'EARRING', trans: 'dtaang-huu', thai: 'ต่างหู', level: 1, lesson: 8 },
-  { en: 'RING', trans: 'ween', thai: 'แหวน', level: 1, lesson: 8 },
+  { en: 'RING', trans: 'waen', thai: 'แหวน', level: 1, lesson: 8 },
   { en: 'BRACELET', trans: 'gam-lai', thai: 'กำไล', level: 2, lesson: 8 },
   { en: 'RIBBON', trans: 'boo', thai: 'โบว์', level: 2, lesson: 8 },
 
