@@ -1193,7 +1193,7 @@ const VOCAB = [
   { en: 'TO DO LAUNDRY', trans: 'sak-paa', thai: 'ซักผ้า', level: 2, lesson: 8 },
   { en: 'TO ACHE', trans: 'bpuat', thai: 'ปวด', level: 1, lesson: 8 },
   { en: 'TO HURT / INJURE', trans: 'jep', thai: 'เจ็บ', level: 1, lesson: 8 },
-  { en: 'TO CATCH A COLD', trans: 'bpen-wat', thai: 'เป็นหวัด', level: 2, lesson: 8 },
+
   { en: 'TO CUT', trans: 'dtat', thai: 'ตัด', level: 1, lesson: 8 },
   { en: 'TO SHAVE', trans: 'gohn', thai: 'โกน', level: 1, lesson: 8 },
   { en: 'TO SHOP', trans: 'seuu-korng', thai: 'ซื้อของ', level: 2, lesson: 8 },
