@@ -1117,7 +1117,7 @@ const VOCAB = [
   { en: 'FOREHEAD', trans: 'naa-paak', thai: 'หน้าผาก', level: 1, lesson: 8 },
   { en: 'EYE / GRANDFATHER', trans: 'dtaa', thai: 'ตา', level: 1, lesson: 8 },
   { en: 'EYEBROW', trans: 'kiu', thai: 'คิ้ว', level: 1, lesson: 8 },
-  { en: 'EYELASH', trans: 'kon-dtaa', thai: 'ขนตา', level: 1, lesson: 8 },
+
   { en: 'EAR', trans: 'huu', thai: 'หู', level: 1, lesson: 8 },
   { en: 'NOSE', trans: 'ja-muuk', thai: 'จมูก', level: 1, lesson: 8 },
   { en: 'MOUTH', trans: 'bpaak', thai: 'ปาก', level: 1, lesson: 8 },
