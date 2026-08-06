@@ -1148,7 +1148,7 @@ const VOCAB = [
   { en: 'BRAIN', trans: 'sa-morng', thai: 'สมอง', level: 2, lesson: 8 },
 
   { en: 'KIDNEY', trans: 'dtai', thai: 'ไต', level: 2, lesson: 8 },
-  { en: 'INTESTINE', trans: 'sai', thai: 'ไส้', level: 2, lesson: 8 },
+
   { en: 'PAUNCH', trans: 'pung', thai: 'พุง', level: 2, lesson: 8 },
   { en: 'MOLE', trans: 'fai', thai: 'ไฝ', level: 2, lesson: 8 },
   { en: 'PIMPLE', trans: 'sio', thai: 'สิว', level: 2, lesson: 8 },
