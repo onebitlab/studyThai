@@ -1114,7 +1114,7 @@ const VOCAB = [
   // -- Голова и лицо --
   { en: 'HEAD', trans: 'huua', thai: 'หัว', level: 1, lesson: 8 },
   { en: 'FACE', trans: 'naa', thai: 'หน้า', level: 1, lesson: 8 },
-  { en: 'FOREHEAD', trans: 'naa-paak', thai: 'หน้าผาก', level: 1, lesson: 8 },
+
   { en: 'EYE / GRANDFATHER', trans: 'dtaa', thai: 'ตา', level: 1, lesson: 8 },
   { en: 'EYEBROW', trans: 'kiu', thai: 'คิ้ว', level: 1, lesson: 8 },
 
