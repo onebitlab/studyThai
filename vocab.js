@@ -1122,7 +1122,7 @@ const VOCAB = [
   { en: 'NOSE', trans: 'ja-muuk', thai: 'จมูก', level: 1, lesson: 8 },
   { en: 'MOUTH', trans: 'bpaak', thai: 'ปาก', level: 1, lesson: 8 },
   { en: 'TOOTH', trans: 'fan', thai: 'ฟัน', level: 1, lesson: 8 },
-  { en: 'TONGUE', trans: 'lin', thai: 'ลิ้น', level: 1, lesson: 8 },
+
 
   { en: 'BEARD', trans: 'krao', thai: 'เครา', level: 1, lesson: 8 },
 
@@ -1132,7 +1132,7 @@ const VOCAB = [
 
   { en: 'STOMACH', trans: 'torng', thai: 'ท้อง', level: 1, lesson: 8 },
 
-  { en: 'HEART', trans: 'huua-jai', thai: 'หัวใจ', level: 1, lesson: 8 },
+
   { en: 'MILK / BREAST', trans: 'nom', thai: 'นม', level: 1, lesson: 8 },
   { en: 'CHEST', trans: 'ok', thai: 'อก', level: 1, lesson: 8 },
   { en: 'HAND', trans: 'meuu', thai: 'มือ', level: 1, lesson: 8 },
