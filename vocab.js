@@ -1131,7 +1131,7 @@ const VOCAB = [
   { en: 'NECK', trans: 'kor', thai: 'คอ', level: 1, lesson: 8 },
 
   { en: 'STOMACH', trans: 'torng', thai: 'ท้อง', level: 1, lesson: 8 },
-  { en: 'NAVEL', trans: 'sa-deuu', thai: 'สะดือ', level: 1, lesson: 8 },
+
   { en: 'HEART', trans: 'huua-jai', thai: 'หัวใจ', level: 1, lesson: 8 },
   { en: 'MILK / BREAST', trans: 'nom', thai: 'นม', level: 1, lesson: 8 },
   { en: 'CHEST', trans: 'ok', thai: 'อก', level: 1, lesson: 8 },
