@@ -1149,7 +1149,7 @@ const VOCAB = [
 
   { en: 'KIDNEY', trans: 'dtai', thai: 'ไต', level: 2, lesson: 8 },
 
-  { en: 'PAUNCH', trans: 'pung', thai: 'พุง', level: 2, lesson: 8 },
+
 
   { en: 'PIMPLE', trans: 'sio', thai: 'สิว', level: 2, lesson: 8 },
   { en: 'TEAR', trans: 'naam-dtaa', thai: 'น้ำตา', level: 2, lesson: 8 },
