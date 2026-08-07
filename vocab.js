@@ -1134,7 +1134,7 @@ const VOCAB = [
 
 
   { en: 'MILK / BREAST', trans: 'nom', thai: 'นม', level: 1, lesson: 8 },
-  { en: 'CHEST', trans: 'ok', thai: 'อก', level: 1, lesson: 8 },
+
   { en: 'HAND', trans: 'meuu', thai: 'มือ', level: 1, lesson: 8 },
   { en: 'FINGER', trans: 'nio', thai: 'นิ้ว', level: 1, lesson: 8 },
   { en: 'NAIL', trans: 'lep', thai: 'เล็บ', level: 1, lesson: 8 },
