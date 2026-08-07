@@ -215,7 +215,13 @@ function loadVocabSession(key) {
     const queue = s.queue.map(en => byEn[en]).filter(Boolean);
     const retry = (s.retry || []).map(en => byEn[en]).filter(Boolean);
     if (!queue.length) return null;
-    return { queue, retry, pos: s.pos || 0, correct: s.correct || 0, level: s.level || 0, lesson: s.lesson || 0, recall: s.recall || false, total: s.total || queue.length };
+    // Clamp pos в случае если слова до текущей позиции были удалены
+    const pos = Math.min(s.pos || 0, Math.max(0, queue.length - 1));
+    // Пересчитываем total с учётом удалённых слов
+    const deletedCount = (s.queue.length - queue.length) + ((s.retry || []).length - retry.length);
+    const total = Math.max(queue.length, (s.total || queue.length) - deletedCount);
+    const correct = Math.min(s.correct || 0, total);
+    return { queue, retry, pos, correct, level: s.level || 0, lesson: s.lesson || 0, recall: s.recall || false, total };
   } catch(e) { return null; }
 }
 
