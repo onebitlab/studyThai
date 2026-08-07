@@ -1147,7 +1147,7 @@ const VOCAB = [
   { en: 'BONE', trans: 'gra-duuk', thai: 'กระดูก', level: 1, lesson: 8 },
 
 
-  { en: 'KIDNEY', trans: 'dtai', thai: 'ไต', level: 2, lesson: 8 },
+
 
 
 
