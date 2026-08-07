@@ -1144,7 +1144,7 @@ const VOCAB = [
   { en: 'FOOT', trans: 'tao', thai: 'เท้า', level: 1, lesson: 8 },
   { en: 'TOE', trans: 'nio-tao', thai: 'นิ้วเท้า', level: 2, lesson: 8 },
   { en: 'BODY', trans: 'dtuua', thai: 'ตัว', level: 1, lesson: 8 },
-  { en: 'BONE', trans: 'gra-duuk', thai: 'กระดูก', level: 1, lesson: 8 },
+
 
 
 
