@@ -1170,7 +1170,7 @@ const VOCAB = [
 
   { en: 'BELT', trans: 'kem-kat', thai: 'เข็มขัด', level: 2, lesson: 8 },
 
-  { en: 'NECKLACE', trans: 'soi', thai: 'สร้อย', level: 1, lesson: 8 },
+
 
   { en: 'RING', trans: 'waen', thai: 'แหวน', level: 1, lesson: 8 },
   { en: 'BRACELET', trans: 'gam-lai', thai: 'กำไล', level: 2, lesson: 8 },
