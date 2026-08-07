@@ -84,7 +84,7 @@ const VOCAB = [
   { en: 'CHILDREN', trans: 'dek dek', thai: 'เด็กเด็ก', level: 1 , lesson: 9 },
 
   // -- Части тела --
-  { en: 'SHOULDER', trans: 'lai', thai: 'ไหล่', level: 1 , lesson: 8 },
+
   { en: 'BREAK/BROKEN', trans: 'hak', thai: 'หัก', level: 1 , lesson: 8 },
   { en: 'FEVER', trans: 'kai', thai: 'ไข้', level: 1 , lesson: 8 },
   { en: 'COUGH', trans: 'ai', thai: 'ไอ', level: 1 , lesson: 8 },
