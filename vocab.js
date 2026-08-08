@@ -1157,10 +1157,10 @@ const VOCAB = [
   // -- Одежда --
   { en: 'HAT', trans: 'muuak', thai: 'หมวก', level: 1, lesson: 8 },
   { en: 'SHIRT / BLOUSE', trans: 'seua', thai: 'เสื้อ', level: 1, lesson: 8 },
-  { en: 'T-SHIRT', trans: 'sua-yuut', thai: 'เสื้อยืด', level: 1, lesson: 8 },
-  { en: 'BUSINESS SUIT', trans: 'sua-nork', thai: 'เสื้อนอก', level: 2, lesson: 8 },
+  { en: 'T-SHIRT', trans: 'seua-yeuut', thai: 'เสื้อยืด', level: 1, lesson: 8 },
+  { en: 'BUSINESS SUIT', trans: 'seua-nork', thai: 'เสื้อนอก', level: 2, lesson: 8 },
 
-  { en: 'SHORT-SLEEVED SHIRT', trans: 'sua-keen-san', thai: 'เสื้อแขนสั้น', level: 2, lesson: 8 },
+  { en: 'SHORT-SLEEVED SHIRT', trans: 'seua-keen-san', thai: 'เสื้อแขนสั้น', level: 2, lesson: 8 },
   { en: 'SKIRT', trans: 'gra-bprohng', thai: 'กระโปรง', level: 1, lesson: 8 },
   { en: 'TROUSERS', trans: 'gaang-geeng', thai: 'กางเกง', level: 1, lesson: 8 },
   { en: 'SHOES', trans: 'rorng-tao', thai: 'รองเท้า', level: 1, lesson: 8 },
