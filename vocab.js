@@ -1197,7 +1197,7 @@ const VOCAB = [
   { en: 'TO CUT', trans: 'dtat', thai: 'ตัด', level: 1, lesson: 8 },
   { en: 'TO SHAVE', trans: 'gohn', thai: 'โกน', level: 1, lesson: 8 },
   { en: 'TO SHOP', trans: 'seuu-korng', thai: 'ซื้อของ', level: 2, lesson: 8 },
-  { en: 'TO GO SHOPPING', trans: 'bpai-chop-bping', thai: 'ไปชอปปิ้ง', level: 2, lesson: 8 },
+
 
   // -- Прочее --
   { en: 'PER', trans: 'la', thai: 'ละ', level: 1, lesson: 8 },
