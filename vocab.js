@@ -1056,7 +1056,7 @@ const VOCAB = [
   { en: 'THIEF', trans: 'ka-moi', thai: 'ขโมย', level: 1, lesson: 9 },
   { en: 'SPY', trans: 'nak-seuup', thai: 'นักสืบ', level: 2, lesson: 9 },
   { en: 'DESIGNER', trans: 'nak-ork-baep', thai: 'นักออกแบบ', level: 2, lesson: 9 },
-  { en: 'GOVERNMENT OFFICIAL', trans: 'kaa-raat-cha-gaan', thai: 'ข้าราชการ', level: 2, lesson: 9 },
+
 
   { en: 'MECHANIC', trans: 'chaang', thai: 'ช่าง', level: 2, lesson: 9 },
   { en: 'BARBER', trans: 'chaang-dtat-pom', thai: 'ช่างตัดผม', level: 2, lesson: 9 },
