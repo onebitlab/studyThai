@@ -1067,7 +1067,7 @@ const VOCAB = [
   { en: 'OWNER', trans: 'jao-korng', thai: 'เจ้าของ', level: 2, lesson: 9 },
   { en: 'SHOP OWNER', trans: 'jao-korng-raan', thai: 'เจ้าของร้าน', level: 2, lesson: 9 },
   { en: 'BUSINESS OWNER', trans: 'jao-korng-tu-ra-git', thai: 'เจ้าของธุรกิจ', level: 2, lesson: 9 },
-  { en: 'SELF-EMPLOYED', trans: 'tam-ngaan-suuan-dtuua', thai: 'ทำงานส่วนตัว', level: 2, lesson: 9 },
+
   { en: 'COMPANY EMPLOYEE', trans: 'tam-ngaan-bor-ri-sat', thai: 'ทำงานบริษัท', level: 2, lesson: 9 },
 
   // -- Животные --
