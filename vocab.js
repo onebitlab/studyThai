@@ -1060,7 +1060,7 @@ const VOCAB = [
   { en: 'DRIVER', trans: 'kon-kap-rot', thai: 'คนขับรถ', level: 2, lesson: 9 },
   { en: 'MECHANIC', trans: 'chaang', thai: 'ช่าง', level: 2, lesson: 9 },
   { en: 'BARBER', trans: 'chaang-dtat-pom', thai: 'ช่างตัดผม', level: 2, lesson: 9 },
-  { en: 'SECRETARY', trans: 'lee-kaa', thai: 'เลขา', level: 2, lesson: 9 },
+
   { en: 'HOUSEWIFE', trans: 'mae-baan', thai: 'แม่บ้าน', level: 2, lesson: 9 },
   { en: 'MERCHANT (MALE)', trans: 'por-kaa', thai: 'พ่อค้า', level: 2, lesson: 9 },
   { en: 'MERCHANT (FEMALE)', trans: 'mae-kaa', thai: 'แม่ค้า', level: 2, lesson: 9 },
