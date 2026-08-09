@@ -1051,7 +1051,7 @@ const VOCAB = [
   { en: 'ENGINEER', trans: 'wit-sa-wa-gon', thai: 'วิศวกร', level: 1, lesson: 9 },
 
   { en: 'MONK', trans: 'pra', thai: 'พระ', level: 1, lesson: 9 },
-  { en: 'MOVIE STAR', trans: 'daa-raa', thai: 'ดารา', level: 1, lesson: 9 },
+
 
 
 
