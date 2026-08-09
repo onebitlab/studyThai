@@ -1014,7 +1014,7 @@ const VOCAB = [
   { en: 'SON OR DAUGHTER', trans: 'luuk', thai: 'ลูก', level: 1, lesson: 9 },
   { en: 'SON', trans: 'luuk-chaai', thai: 'ลูกชาย', level: 1, lesson: 9 },
   { en: 'DAUGHTER', trans: 'luuk-saao', thai: 'ลูกสาว', level: 1, lesson: 9 },
-  { en: 'HUSBAND (FORMAL)', trans: 'saa-mii', thai: 'สามี', level: 1, lesson: 9 },
+
   { en: 'WIFE (FORMAL)', trans: 'pan-ra-yaa', thai: 'ภรรยา', level: 1, lesson: 9 },
   { en: 'HUSBAND (COLLOQ.)', trans: 'puua', thai: 'ผัว', level: 2, lesson: 9 },
   { en: 'WIFE (COLLOQ.)', trans: 'mia', thai: 'เมีย', level: 2, lesson: 9 },
