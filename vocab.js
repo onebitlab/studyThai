@@ -1029,7 +1029,7 @@ const VOCAB = [
   { en: 'PATERNAL GRANDFATHER', trans: 'bpuu', thai: 'ปู่', level: 1, lesson: 9 },
   { en: 'PATERNAL GRANDMOTHER', trans: 'yaa', thai: 'ย่า', level: 1, lesson: 9 },
   { en: 'MATERNAL GRANDMOTHER', trans: 'yaai', thai: 'ยาย', level: 1, lesson: 9 },
-  { en: 'UNCLE (PARENT\'S OLDER BRO.)', trans: 'lung', thai: 'ลุง', level: 1, lesson: 9 },
+
   { en: 'AUNT (PARENT\'S OLDER SIS.)', trans: 'bpaa', thai: 'ป้า', level: 1, lesson: 9 },
   { en: 'MOTHER\'S YOUNGER SIBLING', trans: 'naa', thai: 'น้า', level: 2, lesson: 9 },
 
