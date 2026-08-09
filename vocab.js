@@ -1063,7 +1063,7 @@ const VOCAB = [
 
   { en: 'HOUSEWIFE', trans: 'mae-baan', thai: 'แม่บ้าน', level: 2, lesson: 9 },
   { en: 'MERCHANT (MALE)', trans: 'por-kaa', thai: 'พ่อค้า', level: 2, lesson: 9 },
-  { en: 'MERCHANT (FEMALE)', trans: 'mae-kaa', thai: 'แม่ค้า', level: 2, lesson: 9 },
+
   { en: 'OWNER', trans: 'jao-korng', thai: 'เจ้าของ', level: 2, lesson: 9 },
   { en: 'SHOP OWNER', trans: 'jao-korng-raan', thai: 'เจ้าของร้าน', level: 2, lesson: 9 },
 
