@@ -1032,7 +1032,7 @@ const VOCAB = [
   { en: 'UNCLE (PARENT\'S OLDER BRO.)', trans: 'lung', thai: 'ลุง', level: 1, lesson: 9 },
   { en: 'AUNT (PARENT\'S OLDER SIS.)', trans: 'bpaa', thai: 'ป้า', level: 1, lesson: 9 },
   { en: 'MOTHER\'S YOUNGER SIBLING', trans: 'naa', thai: 'น้า', level: 2, lesson: 9 },
-  { en: 'FATHER\'S YOUNGER SIBLING', trans: 'aa', thai: 'อา', level: 2, lesson: 9 },
+
 
   // -- Профессии --
   { en: 'TEACHER', trans: 'kruu', thai: 'ครู', level: 1, lesson: 9 },
@@ -1068,7 +1068,7 @@ const VOCAB = [
   { en: 'SHOP OWNER', trans: 'jao-korng-raan', thai: 'เจ้าของร้าน', level: 2, lesson: 9 },
 
 
-  { en: 'COMPANY EMPLOYEE', trans: 'tam-ngaan-bor-ri-sat', thai: 'ทำงานบริษัท', level: 2, lesson: 9 },
+
 
   // -- Животные --
   { en: 'ANIMAL', trans: 'sat', thai: 'สัตว์', level: 1, lesson: 9 },
