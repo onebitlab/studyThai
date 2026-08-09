@@ -1099,7 +1099,7 @@ const VOCAB = [
   { en: 'BUTTERFLY', trans: 'pii-seua', thai: 'ผีเสื้อ', level: 1, lesson: 9 },
   { en: 'MOSQUITO', trans: 'yung', thai: 'ยุง', level: 1, lesson: 9 },
   { en: 'KANGAROO', trans: 'jing-joh', thai: 'จิงโจ้', level: 2, lesson: 9 },
-  { en: 'GOAT', trans: 'pae', thai: 'แพะ', level: 2, lesson: 9 },
+
   { en: 'SHEEP', trans: 'gae', thai: 'แกะ', level: 2, lesson: 9 },
   { en: 'CAMEL', trans: 'uut', thai: 'อูฐ', level: 2, lesson: 9 },
   { en: 'BAT', trans: 'kaang-kaao', thai: 'ค้างคาว', level: 2, lesson: 9 },
