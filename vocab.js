@@ -1066,7 +1066,7 @@ const VOCAB = [
   { en: 'MERCHANT (FEMALE)', trans: 'mae-kaa', thai: 'แม่ค้า', level: 2, lesson: 9 },
   { en: 'OWNER', trans: 'jao-korng', thai: 'เจ้าของ', level: 2, lesson: 9 },
   { en: 'SHOP OWNER', trans: 'jao-korng-raan', thai: 'เจ้าของร้าน', level: 2, lesson: 9 },
-  { en: 'BUSINESS OWNER', trans: 'jao-korng-tu-ra-git', thai: 'เจ้าของธุรกิจ', level: 2, lesson: 9 },
+
 
   { en: 'COMPANY EMPLOYEE', trans: 'tam-ngaan-bor-ri-sat', thai: 'ทำงานบริษัท', level: 2, lesson: 9 },
 
