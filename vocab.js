@@ -1102,7 +1102,7 @@ const VOCAB = [
 
   { en: 'SHEEP', trans: 'gae', thai: 'แกะ', level: 2, lesson: 9 },
   { en: 'CAMEL', trans: 'uut', thai: 'อูฐ', level: 2, lesson: 9 },
-  { en: 'BAT', trans: 'kaang-kaao', thai: 'ค้างคาว', level: 2, lesson: 9 },
+
   { en: 'ZEBRA', trans: 'maa-laai', thai: 'ม้าลาย', level: 2, lesson: 9 },
   { en: 'WOLF', trans: 'maa-bpaa', thai: 'หมาป่า', level: 2, lesson: 9 },
   { en: 'FOX', trans: 'maa-jing-jok', thai: 'หมาจิ้งจอก', level: 2, lesson: 9 },
