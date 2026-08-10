@@ -1074,7 +1074,7 @@ const VOCAB = [
   { en: 'ANIMAL', trans: 'sat', thai: 'สัตว์', level: 1, lesson: 9 },
   { en: 'PET', trans: 'sat-liang', thai: 'สัตว์เลี้ยง', level: 1, lesson: 9 },
   { en: 'MALE ANIMAL', trans: 'dtuua-puu', thai: 'ตัวผู้', level: 2, lesson: 9 },
-  { en: 'FEMALE ANIMAL', trans: 'dtuua-mia', thai: 'ตัวเมีย', level: 2, lesson: 9 },
+
   { en: 'DOG', trans: 'maa', thai: 'หมา', level: 1, lesson: 9 },
   { en: 'CAT', trans: 'maeo', thai: 'แมว', level: 1, lesson: 9 },
   { en: 'PIG / PORK', trans: 'muu', thai: 'หมู', level: 1, lesson: 9 },
