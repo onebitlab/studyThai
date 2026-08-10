@@ -1087,7 +1087,7 @@ const VOCAB = [
   { en: 'SHELLFISH / OYSTER', trans: 'hoi', thai: 'หอย', level: 1, lesson: 9 },
   { en: 'CRAB', trans: 'bpuu', thai: 'ปู', level: 1, lesson: 9 },
   { en: 'SHRIMP', trans: 'gung', thai: 'กุ้ง', level: 1, lesson: 9 },
-  { en: 'BEAR', trans: 'mii', thai: 'หมี', level: 1, lesson: 9 },
+
   { en: 'BIRD', trans: 'nok', thai: 'นก', level: 1, lesson: 9 },
   { en: 'MONKEY', trans: 'ling', thai: 'ลิง', level: 1, lesson: 9 },
   { en: 'RAT / MOUSE', trans: 'nuu', thai: 'หนู', level: 1, lesson: 9 },
