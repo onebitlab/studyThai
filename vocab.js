@@ -840,7 +840,7 @@ const VOCAB = [
   { en: 'LONG', trans: 'yaao', thai: 'ยาว', level: 1, lesson: 10 },
   { en: 'SHORT (LENGTH)', trans: 'san', thai: 'สั้น', level: 1, lesson: 10 },
   { en: 'HEAVY', trans: 'nak', thai: 'หนัก', level: 1, lesson: 10 },
-  { en: 'LIGHT (WEIGHT)', trans: 'bao', thai: 'เบา', level: 1, lesson: 10 },
+
   { en: 'WIDE', trans: 'gwaang', thai: 'กว้าง', level: 1, lesson: 10 },
   { en: 'NARROW', trans: 'kaep', thai: 'แคบ', level: 1, lesson: 10 },
 
@@ -869,7 +869,7 @@ const VOCAB = [
   { en: 'AWFUL / TERRIFYING', trans: 'naa-gluua', thai: 'น่ากลัว', level: 1, lesson: 10 },
   { en: 'INTERESTING', trans: 'naa-son-jai', thai: 'น่าสนใจ', level: 1, lesson: 10 },
   { en: 'BORING', trans: 'naa-beua', thai: 'น่าเบื่อ', level: 1, lesson: 10 },
-  { en: 'CONVENIENT', trans: 'sa-duak', thai: 'สะดวก', level: 1, lesson: 10 },
+
   { en: 'COMFORTABLE', trans: 'sa-baai', thai: 'สบาย', level: 1, lesson: 10 },
 
   { en: 'DIRTY', trans: 'sok-ga-bprok', thai: 'สกปรก', level: 1, lesson: 10 },
@@ -914,9 +914,9 @@ const VOCAB = [
   { en: 'MANGOSTEEN', trans: 'mang-kut', thai: 'มังคุด', level: 1, lesson: 10 },
   { en: 'RAMBUTAN', trans: 'ngor', thai: 'เงาะ', level: 1, lesson: 10 },
 
-  { en: 'PAPAYA', trans: 'ma-la-gor', thai: 'มะละกอ', level: 1, lesson: 10 },
+
   { en: 'APPLE', trans: 'aep-bpern', thai: 'แอปเปิ้ล', level: 1, lesson: 10 },
-  { en: 'ROSE APPLE', trans: 'chom-puu', thai: 'ชมพู่', level: 1, lesson: 10 },
+
 
   { en: 'ORANGE', trans: 'som', thai: 'ส้ม', level: 1, lesson: 10 },
   { en: 'PINEAPPLE', trans: 'sap-bpa-rot', thai: 'สับปะรด', level: 1, lesson: 10 },
@@ -931,14 +931,14 @@ const VOCAB = [
   { en: 'ORCHID', trans: 'gluai-mai', thai: 'กล้วยไม้', level: 1, lesson: 10 },
 
   // -- Посуда и вещи --
-  { en: 'GLASS / CUP', trans: 'gaeo', thai: 'แก้ว', level: 1, lesson: 10 },
+
   { en: 'CUP / BOWL', trans: 'tuuai', thai: 'ถ้วย', level: 1, lesson: 10 },
   { en: 'PLATE', trans: 'jaan', thai: 'จาน', level: 1, lesson: 10 },
   { en: 'BOX', trans: 'glorng', thai: 'กล่อง', level: 1, lesson: 10 },
   { en: 'BOTTLE', trans: 'kuuat', thai: 'ขวด', level: 1, lesson: 10 },
   { en: 'BALL', trans: 'luuk-bon', thai: 'ลูกบอล', level: 1, lesson: 10 },
   { en: 'BOARD', trans: 'gra-daan', thai: 'กระดาน', level: 1, lesson: 10 },
-  { en: 'LETTER / MAIL', trans: 'jot-maai', thai: 'จดหมาย', level: 1, lesson: 10 },
+
 
   // -- Еда --
   { en: 'EGG', trans: 'kai', thai: 'ไข่', level: 1, lesson: 10 },
@@ -954,7 +954,7 @@ const VOCAB = [
   { en: 'FORK', trans: 'som', thai: 'ส้อม', level: 1, lesson: 10 },
   { en: 'KNIFE', trans: 'miit', thai: 'มีด', level: 1, lesson: 10 },
   { en: 'UMBRELLA', trans: 'rom', thai: 'ร่ม', level: 1, lesson: 10 },
-  { en: 'REFRIGERATOR', trans: 'dtuu-yen', thai: 'ตู้เย็น', level: 1, lesson: 10 },
+
   { en: 'COMPUTER', trans: 'kom-piu-dter', thai: 'คอมพิวเตอร์', level: 1, lesson: 10 },
   { en: 'DOCUMENT', trans: 'ek-ga-saan', thai: 'เอกสาร', level: 1, lesson: 10 },
 
