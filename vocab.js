@@ -1016,69 +1016,52 @@ const VOCAB = [
   { en: 'DAUGHTER', trans: 'luuk-saao', thai: 'ลูกสาว', level: 1, lesson: 9 },
 
 
-  { en: 'HUSBAND (COLLOQ.)', trans: 'puua', thai: 'ผัว', level: 2, lesson: 9 },
   { en: 'WIFE (COLLOQ.)', trans: 'mia', thai: 'เมีย', level: 2, lesson: 9 },
   { en: 'FATHER', trans: 'por', thai: 'พ่อ', level: 1, lesson: 9 },
   { en: 'MOTHER', trans: 'mae', thai: 'แม่', level: 1, lesson: 9 },
   { en: 'OLDER SIBLING', trans: 'pii', thai: 'พี่', level: 1, lesson: 9 },
-  { en: 'YOUNGER SIBLING', trans: 'norng', thai: 'น้อง', level: 1, lesson: 9 },
   { en: 'OLDER BROTHER', trans: 'pii-chaai', thai: 'พี่ชาย', level: 1, lesson: 9 },
   { en: 'OLDER SISTER', trans: 'pii-saao', thai: 'พี่สาว', level: 1, lesson: 9 },
   { en: 'YOUNGER BROTHER', trans: 'norng-chaai', thai: 'น้องชาย', level: 1, lesson: 9 },
   { en: 'YOUNGER SISTER', trans: 'norng-saao', thai: 'น้องสาว', level: 1, lesson: 9 },
   { en: 'PATERNAL GRANDFATHER', trans: 'bpuu', thai: 'ปู่', level: 1, lesson: 9 },
-  { en: 'PATERNAL GRANDMOTHER', trans: 'yaa', thai: 'ย่า', level: 1, lesson: 9 },
   { en: 'MATERNAL GRANDMOTHER', trans: 'yaai', thai: 'ยาย', level: 1, lesson: 9 },
 
   { en: 'AUNT (PARENT\'S OLDER SIS.)', trans: 'bpaa', thai: 'ป้า', level: 1, lesson: 9 },
-  { en: 'MOTHER\'S YOUNGER SIBLING', trans: 'naa', thai: 'น้า', level: 2, lesson: 9 },
 
 
   // -- Профессии --
   { en: 'TEACHER', trans: 'kruu', thai: 'ครู', level: 1, lesson: 9 },
-  { en: 'PROFESSOR', trans: 'aa-jaan', thai: 'อาจารย์', level: 1, lesson: 9 },
   { en: 'DOCTOR', trans: 'mor', thai: 'หมอ', level: 1, lesson: 9 },
   { en: 'DENTIST', trans: 'mor-fan', thai: 'หมอฟัน', level: 1, lesson: 9 },
   { en: 'NURSE', trans: 'pa-yaa-baan', thai: 'พยาบาล', level: 1, lesson: 9 },
   { en: 'STUDENT', trans: 'nak-rian', thai: 'นักเรียน', level: 1, lesson: 9 },
 
-  { en: 'BUSINESSMAN', trans: 'nak-tu-ra-git', thai: 'นักธุรกิจ', level: 1, lesson: 9 },
   { en: 'WRITER', trans: 'nak-kian', thai: 'นักเขียน', level: 1, lesson: 9 },
   { en: 'PILOT', trans: 'nak-bin', thai: 'นักบิน', level: 1, lesson: 9 },
 
 
   { en: 'SOLDIER', trans: 'ta-haan', thai: 'ทหาร', level: 1, lesson: 9 },
-  { en: 'ENGINEER', trans: 'wit-sa-wa-gon', thai: 'วิศวกร', level: 1, lesson: 9 },
 
   { en: 'MONK', trans: 'pra', thai: 'พระ', level: 1, lesson: 9 },
 
 
 
 
-  { en: 'DESIGNER', trans: 'nak-ork-baep', thai: 'นักออกแบบ', level: 2, lesson: 9 },
-
-
   { en: 'MECHANIC', trans: 'chaang', thai: 'ช่าง', level: 2, lesson: 9 },
-  { en: 'BARBER', trans: 'chaang-dtat-pom', thai: 'ช่างตัดผม', level: 2, lesson: 9 },
 
   { en: 'HOUSEWIFE', trans: 'mae-baan', thai: 'แม่บ้าน', level: 2, lesson: 9 },
-  { en: 'MERCHANT (MALE)', trans: 'por-kaa', thai: 'พ่อค้า', level: 2, lesson: 9 },
-
-  { en: 'OWNER', trans: 'jao-korng', thai: 'เจ้าของ', level: 2, lesson: 9 },
-  { en: 'SHOP OWNER', trans: 'jao-korng-raan', thai: 'เจ้าของร้าน', level: 2, lesson: 9 },
 
 
 
 
   // -- Животные --
   { en: 'ANIMAL', trans: 'sat', thai: 'สัตว์', level: 1, lesson: 9 },
-  { en: 'PET', trans: 'sat-liang', thai: 'สัตว์เลี้ยง', level: 1, lesson: 9 },
   { en: 'MALE ANIMAL', trans: 'dtuua-puu', thai: 'ตัวผู้', level: 2, lesson: 9 },
 
   { en: 'DOG', trans: 'maa', thai: 'หมา', level: 1, lesson: 9 },
   { en: 'CAT', trans: 'maeo', thai: 'แมว', level: 1, lesson: 9 },
   { en: 'PIG / PORK', trans: 'muu', thai: 'หมู', level: 1, lesson: 9 },
-  { en: 'DUCK', trans: 'bpet', thai: 'เป็ด', level: 1, lesson: 9 },
   { en: 'CHICKEN / HEN', trans: 'gai', thai: 'ไก่', level: 1, lesson: 9 },
   { en: 'ELEPHANT', trans: 'chaang', thai: 'ช้าง', level: 1, lesson: 9 },
   { en: 'HORSE', trans: 'maa', thai: 'ม้า', level: 1, lesson: 9 },
@@ -1100,12 +1083,9 @@ const VOCAB = [
   { en: 'MOSQUITO', trans: 'yung', thai: 'ยุง', level: 1, lesson: 9 },
   { en: 'KANGAROO', trans: 'jing-joh', thai: 'จิงโจ้', level: 2, lesson: 9 },
 
-  { en: 'SHEEP', trans: 'gae', thai: 'แกะ', level: 2, lesson: 9 },
   { en: 'CAMEL', trans: 'uut', thai: 'อูฐ', level: 2, lesson: 9 },
 
-  { en: 'ZEBRA', trans: 'maa-laai', thai: 'ม้าลาย', level: 2, lesson: 9 },
   { en: 'WOLF', trans: 'maa-bpaa', thai: 'หมาป่า', level: 2, lesson: 9 },
-  { en: 'FOX', trans: 'maa-jing-jok', thai: 'หมาจิ้งจอก', level: 2, lesson: 9 },
   { en: 'ANT', trans: 'mot', thai: 'มด', level: 2, lesson: 9 },
   { en: 'FLY', trans: 'ma-laeng-wan', thai: 'แมลงวัน', level: 2, lesson: 9 },
 
