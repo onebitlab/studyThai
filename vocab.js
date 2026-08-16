@@ -830,10 +830,10 @@ const VOCAB = [
   { en: 'BIG', trans: 'yai', thai: 'ใหญ่', level: 1, lesson: 10 },
   { en: 'BIG / GROWN-UP', trans: 'dtoh', thai: 'โต', level: 1, lesson: 10 },
   { en: 'SMALL', trans: 'lek', thai: 'เล็ก', level: 1, lesson: 10 },
-  { en: 'FAT', trans: 'uan', thai: 'อ้วน', level: 1, lesson: 10 },
+
   { en: 'THIN (LEAN)', trans: 'porm', thai: 'ผอม', level: 1, lesson: 10 },
   { en: 'THICK', trans: 'naa', thai: 'หนา', level: 1, lesson: 10 },
-  { en: 'THIN (FLAT)', trans: 'baang', thai: 'บาง', level: 1, lesson: 10 },
+
   { en: 'TALL / HIGH', trans: 'suung', thai: 'สูง', level: 1, lesson: 10 },
   { en: 'SHORT (HEIGHT)', trans: 'dtia', thai: 'เตี้ย', level: 1, lesson: 10 },
   { en: 'LOW', trans: 'dtam', thai: 'ต่ำ', level: 1, lesson: 10 },
@@ -848,7 +848,7 @@ const VOCAB = [
   { en: 'HOT', trans: 'rorn', thai: 'ร้อน', level: 1, lesson: 10 },
   { en: 'COLD (WEATHER)', trans: 'naao', thai: 'หนาว', level: 1, lesson: 10 },
   { en: 'FAR', trans: 'glai', thai: 'ไกล', level: 1, lesson: 10 },
-  { en: 'NEAR', trans: 'glai', thai: 'ใกล้', level: 1, lesson: 10 },
+
 
   // -- Количество и возраст --
   { en: 'LITTLE / FEW', trans: 'noi', thai: 'น้อย', level: 1, lesson: 10 },
@@ -858,7 +858,7 @@ const VOCAB = [
   { en: 'OLD (THINGS)', trans: 'gao', thai: 'เก่า', level: 1, lesson: 10 },
 
   // -- Прилагательные --
-  { en: 'STRONG', trans: 'kaeng-raeng', thai: 'แข็งแรง', level: 1, lesson: 10 },
+
   { en: 'WEAK', trans: 'orn-ae', thai: 'อ่อนแอ', level: 1, lesson: 10 },
   { en: 'INTELLIGENT', trans: 'cha-laat', thai: 'ฉลาด', level: 1, lesson: 10 },
   { en: 'STUPID', trans: 'ngoh', thai: 'โง่', level: 1, lesson: 10 },
@@ -871,7 +871,7 @@ const VOCAB = [
   { en: 'BORING', trans: 'naa-beua', thai: 'น่าเบื่อ', level: 1, lesson: 10 },
   { en: 'CONVENIENT', trans: 'sa-duak', thai: 'สะดวก', level: 1, lesson: 10 },
   { en: 'COMFORTABLE', trans: 'sa-baai', thai: 'สบาย', level: 1, lesson: 10 },
-  { en: 'CLEAN', trans: 'sa-aat', thai: 'สะอาด', level: 1, lesson: 10 },
+
   { en: 'DIRTY', trans: 'sok-ga-bprok', thai: 'สกปรก', level: 1, lesson: 10 },
   { en: 'DILIGENT', trans: 'ka-yan', thai: 'ขยัน', level: 1, lesson: 10 },
   { en: 'LAZY', trans: 'kii-giat', thai: 'ขี้เกียจ', level: 1, lesson: 10 },
@@ -882,20 +882,20 @@ const VOCAB = [
   { en: 'HANDSOME', trans: 'ruup-lor', thai: 'รูปหล่อ', level: 1, lesson: 10 },
   { en: 'FAMOUS', trans: 'mii-cheuu-siang', thai: 'มีชื่อเสียง', level: 1, lesson: 10 },
   { en: 'IMPORTANT', trans: 'sam-kan', thai: 'สำคัญ', level: 1, lesson: 10 },
-  { en: 'SPECIAL', trans: 'pi-seet', thai: 'พิเศษ', level: 1, lesson: 10 },
+
 
   // -- Характер --
   { en: 'STINGY / THRIFTY', trans: 'kii-niao', thai: 'ขี้เหนียว', level: 2, lesson: 10 },
   { en: 'GLAD', trans: 'dii-jai', thai: 'ดีใจ', level: 1, lesson: 10 },
   { en: 'KIND', trans: 'jai-dii', thai: 'ใจดี', level: 1, lesson: 10 },
-  { en: 'GENEROUS', trans: 'jai-gwaang', thai: 'ใจกว้าง', level: 2, lesson: 10 },
+
   { en: 'CALM', trans: 'jai-yen', thai: 'ใจเย็น', level: 2, lesson: 10 },
   { en: 'IMPATIENT', trans: 'jai-rorn', thai: 'ใจร้อน', level: 2, lesson: 10 },
   { en: 'BAD (MORALLY)', trans: 'leo', thai: 'เลว', level: 1, lesson: 10 },
   { en: 'QUIET', trans: 'ngiap', thai: 'เงียบ', level: 1, lesson: 10 },
   { en: 'TO ASK FOR STH', trans: 'kor', thai: 'ขอ', level: 1, lesson: 10 },
   { en: 'TO SMOKE', trans: 'suup', thai: 'สูบ', level: 1, lesson: 10 },
-  { en: 'TO HATE', trans: 'gliat', thai: 'เกลียด', level: 1, lesson: 10 },
+
   { en: 'TO LIE', trans: 'goh-hok', thai: 'โกหก', level: 1, lesson: 10 },
 
   // -- Слова-сравнения --
@@ -913,11 +913,11 @@ const VOCAB = [
   { en: 'DURIAN', trans: 'tu-rian', thai: 'ทุเรียน', level: 1, lesson: 10 },
   { en: 'MANGOSTEEN', trans: 'mang-kut', thai: 'มังคุด', level: 1, lesson: 10 },
   { en: 'RAMBUTAN', trans: 'ngor', thai: 'เงาะ', level: 1, lesson: 10 },
-  { en: 'LONGAN', trans: 'lam-yai', thai: 'ลำไย', level: 1, lesson: 10 },
+
   { en: 'PAPAYA', trans: 'ma-la-gor', thai: 'มะละกอ', level: 1, lesson: 10 },
   { en: 'APPLE', trans: 'aep-bpern', thai: 'แอปเปิ้ล', level: 1, lesson: 10 },
   { en: 'ROSE APPLE', trans: 'chom-puu', thai: 'ชมพู่', level: 1, lesson: 10 },
-  { en: 'SUGAR APPLE', trans: 'noi-naa', thai: 'น้อยหน่า', level: 2, lesson: 10 },
+
   { en: 'ORANGE', trans: 'som', thai: 'ส้ม', level: 1, lesson: 10 },
   { en: 'PINEAPPLE', trans: 'sap-bpa-rot', thai: 'สับปะรด', level: 1, lesson: 10 },
   { en: 'WATERMELON', trans: 'dtaeng-moh', thai: 'แตงโม', level: 1, lesson: 10 },
@@ -957,14 +957,14 @@ const VOCAB = [
   { en: 'REFRIGERATOR', trans: 'dtuu-yen', thai: 'ตู้เย็น', level: 1, lesson: 10 },
   { en: 'COMPUTER', trans: 'kom-piu-dter', thai: 'คอมพิวเตอร์', level: 1, lesson: 10 },
   { en: 'DOCUMENT', trans: 'ek-ga-saan', thai: 'เอกสาร', level: 1, lesson: 10 },
-  { en: 'MAGAZINE', trans: 'nit-dta-ya-saan', thai: 'นิตยสาร', level: 2, lesson: 10 },
+
   { en: 'STAMP', trans: 'sa-dtem', thai: 'แสตมป์', level: 1, lesson: 10 },
   { en: 'VIDEO', trans: 'wi-dii-oh', thai: 'วิดีโอ', level: 1, lesson: 10 },
   { en: 'CASSETTE TAPE', trans: 'muan-tep', thai: 'มวนเทป', level: 2, lesson: 10 },
   { en: 'FILM', trans: 'fim', thai: 'ฟิล์ม', level: 2, lesson: 10 },
   { en: 'BUILDING', trans: 'dteuk', thai: 'ตึก', level: 1, lesson: 10 },
   { en: 'FLOOR / GRADE', trans: 'chan', thai: 'ชั้น', level: 1, lesson: 10 },
-  { en: 'DOLL', trans: 'dtuk-ga-dtaa', thai: 'ตุ๊กตา', level: 1, lesson: 10 },
+
   { en: 'CANDLE', trans: 'tian', thai: 'เทียน', level: 1, lesson: 10 },
   { en: 'NEEDLE', trans: 'kem', thai: 'เข็ม', level: 1, lesson: 10 },
   { en: 'CANDY / LOZENGE', trans: 'luuk-om', thai: 'ลูกอม', level: 1, lesson: 10 },
@@ -981,7 +981,7 @@ const VOCAB = [
   // -- Места --
   { en: 'ROAD / STREET', trans: 'ta-non', thai: 'ถนน', level: 1, lesson: 10 },
   { en: 'RAILWAY', trans: 'taang-rot-fai', thai: 'ทางรถไฟ', level: 1, lesson: 10 },
-  { en: 'CANAL', trans: 'klorng', thai: 'คลอง', level: 1, lesson: 10 },
+
 
   // -- Медиа --
   { en: 'MOVIE (COLLOQUIAL)', trans: 'nang', thai: 'หนัง', level: 1, lesson: 10 },
@@ -1019,7 +1019,7 @@ const VOCAB = [
   { en: 'WIFE (COLLOQ.)', trans: 'mia', thai: 'เมีย', level: 2, lesson: 9 },
   { en: 'FATHER', trans: 'por', thai: 'พ่อ', level: 1, lesson: 9 },
   { en: 'MOTHER', trans: 'mae', thai: 'แม่', level: 1, lesson: 9 },
-  { en: 'OLDER SIBLING', trans: 'pii', thai: 'พี่', level: 1, lesson: 9 },
+
   { en: 'OLDER BROTHER', trans: 'pii-chaai', thai: 'พี่ชาย', level: 1, lesson: 9 },
   { en: 'OLDER SISTER', trans: 'pii-saao', thai: 'พี่สาว', level: 1, lesson: 9 },
   { en: 'YOUNGER BROTHER', trans: 'norng-chaai', thai: 'น้องชาย', level: 1, lesson: 9 },
@@ -1057,7 +1057,7 @@ const VOCAB = [
 
   // -- Животные --
   { en: 'ANIMAL', trans: 'sat', thai: 'สัตว์', level: 1, lesson: 9 },
-  { en: 'MALE ANIMAL', trans: 'dtuua-puu', thai: 'ตัวผู้', level: 2, lesson: 9 },
+
 
   { en: 'DOG', trans: 'maa', thai: 'หมา', level: 1, lesson: 9 },
   { en: 'CAT', trans: 'maeo', thai: 'แมว', level: 1, lesson: 9 },
